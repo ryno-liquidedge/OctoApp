@@ -1,26 +1,36 @@
 {
-    "name": "liquidedge/octoapp",
-    "description": "Useful addon methods for Nova",
-    "autoload": {
-        "psr-4": {
-            "Liquidedge\\Octoapp\\": "src/"
-        }
-    },
-    "authors": [
-        {
-            "name": "ryno-liquidedge",
-            "email": "ryno@liquidedge.co.za"
-        }
-    ],
-    "require": {
-        "matomo/device-detector": "v6.0.*",
-        "twbs/bootstrap": "5.3.1",
-        "fortawesome/font-awesome": "6.2.0",
-        "phpmailer/phpmailer": "6.6.*",
-        "setasign/fpdi": "2.3.*",
-        "tinify/tinify": "1.6.1",
-        "liquidedge/tcpdf": "6.5.0.*",
-        "liquidedge/octoapi": "1.0.*",
-        "imagecow/imagecow": "2.4.1"
+  "name": "liquidedge-app/octoapp",
+  "description": "Useful addon methods for Nova",
+  "autoload": {
+    "psr-4": {
+      "LiquidedgeApp\\Octoapp\\": "src/"
     }
+  },
+  "authors": [
+    {
+      "name": "ryno-liquidedge",
+      "email": "ryno@liquidedge.co.za"
+    }
+  ],
+  "require": {
+    "matomo/device-detector": "v6.0.*",
+    "twbs/bootstrap": "5.3.1",
+    "fortawesome/font-awesome": "6.2.0",
+    "phpmailer/phpmailer": "6.6.*",
+    "setasign/fpdi": "2.3.*",
+    "tinify/tinify": "1.6.1",
+    "liquidedge/tcpdf": "6.5.0.*",
+    "liquidedge/octoapi": "1.0.*",
+    "imagecow/imagecow": "2.4.1"
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://repo.packagist.com/liquid-edge/"
+    },
+    {
+      "type": "composer",
+      "url": "https://www.setasign.com/downloads/"
+    }
+  ]
 }

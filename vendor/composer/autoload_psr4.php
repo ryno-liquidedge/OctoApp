@@ -6,5 +6,17 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Liquidedge\\Octoapp\\' => array($baseDir . '/src'),
+    'setasign\\Fpdi\\' => array($vendorDir . '/setasign/fpdi/src'),
+    'octoapi\\' => array($vendorDir . '/liquidedge/octoapi/src'),
+    'Tinify\\' => array($vendorDir . '/tinify/tinify/lib/Tinify'),
+    'Psr\\SimpleCache\\' => array($vendorDir . '/psr/simple-cache/src'),
+    'Psr\\Cache\\' => array($vendorDir . '/psr/cache/src'),
+    'PHPMailer\\PHPMailer\\' => array($vendorDir . '/phpmailer/phpmailer/src'),
+    'MatthiasMullie\\Scrapbook\\' => array($vendorDir . '/matthiasmullie/scrapbook/src'),
+    'LiquidedgeApp\\Octoapp\\' => array($baseDir . '/src'),
+    'League\\MimeTypeDetection\\' => array($vendorDir . '/league/mime-type-detection/src'),
+    'League\\Flysystem\\Local\\' => array($vendorDir . '/league/flysystem-local'),
+    'League\\Flysystem\\' => array($vendorDir . '/league/flysystem/src'),
+    'Imagecow\\' => array($vendorDir . '/imagecow/imagecow/src'),
+    'DeviceDetector\\' => array($vendorDir . '/matomo/device-detector'),
 );

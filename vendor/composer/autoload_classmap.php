@@ -7,4 +7,18 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
+    'Datamatrix' => $vendorDir . '/liquidedge/tcpdf/include/barcodes/datamatrix.php',
+    'PDF417' => $vendorDir . '/liquidedge/tcpdf/include/barcodes/pdf417.php',
+    'QRcode' => $vendorDir . '/liquidedge/tcpdf/include/barcodes/qrcode.php',
+    'TCPDF' => $vendorDir . '/liquidedge/tcpdf/tcpdf.php',
+    'TCPDF2DBarcode' => $vendorDir . '/liquidedge/tcpdf/tcpdf_barcodes_2d.php',
+    'TCPDFBarcode' => $vendorDir . '/liquidedge/tcpdf/tcpdf_barcodes_1d.php',
+    'TCPDF_COLORS' => $vendorDir . '/liquidedge/tcpdf/include/tcpdf_colors.php',
+    'TCPDF_FILTERS' => $vendorDir . '/liquidedge/tcpdf/include/tcpdf_filters.php',
+    'TCPDF_FONTS' => $vendorDir . '/liquidedge/tcpdf/include/tcpdf_fonts.php',
+    'TCPDF_FONT_DATA' => $vendorDir . '/liquidedge/tcpdf/include/tcpdf_font_data.php',
+    'TCPDF_IMAGES' => $vendorDir . '/liquidedge/tcpdf/include/tcpdf_images.php',
+    'TCPDF_IMPORT' => $vendorDir . '/liquidedge/tcpdf/tcpdf_import.php',
+    'TCPDF_PARSER' => $vendorDir . '/liquidedge/tcpdf/tcpdf_parser.php',
+    'TCPDF_STATIC' => $vendorDir . '/liquidedge/tcpdf/include/tcpdf_static.php',
 );

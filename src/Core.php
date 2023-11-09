@@ -1,6 +1,6 @@
 <?php
 
-namespace octoapp;
+namespace LiquidedgeApp\Octoapp;
 
 class Core {
  	public function __construct() {
