@@ -241,7 +241,7 @@ class table extends \com\ui\set\bootstrap\table {
 	//--------------------------------------------------------------------------------
     public function parse_request(){
 	    // params
-		$requests = \core::$app->get_request()->get("comlist", \com\data::TYPE_STRING);
+		$requests = \core::$app->get_request()->get("comlist", \LiquidedgeApp\Octoapp\app\app\data\data::TYPE_STRING);
 
         $requests = json_decode($requests);
 
@@ -263,7 +263,7 @@ class table extends \com\ui\set\bootstrap\table {
 	//--------------------------------------------------------------------------------
 	protected function init_requests() {
 		// params
-		$requests = \core::$app->get_request()->get("comlist", \com\data::TYPE_STRING);
+		$requests = \core::$app->get_request()->get("comlist", \LiquidedgeApp\Octoapp\app\app\data\data::TYPE_STRING);
 
 		// get defaults from cache
 		if ($this->cache_id) {
@@ -295,11 +295,11 @@ class table extends \com\ui\set\bootstrap\table {
 		$this->filter_arr = $requests["f"];
 
 		if(!$this->datefrom){
-			$value = $this->request_advanced_filter("{$this->id}_datefrom", ["property" => "datefrom", "type" => \com\data::TYPE_DATE]);
+			$value = $this->request_advanced_filter("{$this->id}_datefrom", ["property" => "datefrom", "type" => \LiquidedgeApp\Octoapp\app\app\data\data::TYPE_DATE]);
 			if($value && !isnull($value)) $this->datefrom = $value;
 		}
 		if(!$this->dateto){
-			$value = $this->request_advanced_filter("{$this->id}_dateto", ["property" => "dateto", "type" => \com\data::TYPE_DATE]);
+			$value = $this->request_advanced_filter("{$this->id}_dateto", ["property" => "dateto", "type" => \LiquidedgeApp\Octoapp\app\app\data\data::TYPE_DATE]);
 			if($value && !isnull($value)) $this->dateto = $value;
 		}
 		if(!$this->quickfind){
@@ -334,7 +334,7 @@ class table extends \com\ui\set\bootstrap\table {
 		$options = array_merge([
 		    "default" => false,
 		    "property" => false,
-		    "type" => \com\data::TYPE_STRING,
+		    "type" => \LiquidedgeApp\Octoapp\app\app\data\data::TYPE_STRING,
 		    "suffix" => "_adv",
 		], $options);
 
@@ -394,7 +394,7 @@ class table extends \com\ui\set\bootstrap\table {
 						    	$buffer->xform_label("Filter by Date");
 						    $buffer->_div();
 						    $buffer->div_([".col" => true]);
-						    	$datefrom = $this->request_advanced_filter("{$comtable->id}_datefrom", ["property" => "datefrom", "type" => \com\data::TYPE_DATE]);
+						    	$datefrom = $this->request_advanced_filter("{$comtable->id}_datefrom", ["property" => "datefrom", "type" => \LiquidedgeApp\Octoapp\app\app\data\data::TYPE_DATE]);
 						    	$buffer->xidate("{$comtable->id}_datefrom_adv", $datefrom, false, [
 						    		"@placeholder" => "Date from",
 						    		".mb-2" => true,
@@ -408,7 +408,7 @@ class table extends \com\ui\set\bootstrap\table {
 									",
 								]);
 
-						    	$dateto = $this->request_advanced_filter("{$comtable->id}_dateto", ["property" => "dateto", "type" => \com\data::TYPE_DATE]);
+						    	$dateto = $this->request_advanced_filter("{$comtable->id}_dateto", ["property" => "dateto", "type" => \LiquidedgeApp\Octoapp\app\app\data\data::TYPE_DATE]);
 						    	$buffer->xidate("{$comtable->id}_dateto_adv", $dateto, false, ["@placeholder" => "Date To",]);
 						    $buffer->_div();
 						$buffer->_div();
@@ -458,7 +458,7 @@ class table extends \com\ui\set\bootstrap\table {
 		}
 
         $session_id = "{$this->cache_id}_filter_{$id}";
-	    $value = \core::$app->get_request()->get($id, \com\data::TYPE_STRING, ["trusted" => true, "default" => \core::$app->get_session()->get($session_id, null)]);
+	    $value = \core::$app->get_request()->get($id, \LiquidedgeApp\Octoapp\app\app\data\data::TYPE_STRING, ["trusted" => true, "default" => \core::$app->get_session()->get($session_id, null)]);
 
 	    if($this->is_reset()) $value = null;
 	    if($value === "" || $value === null) $value = $options["default"];
@@ -1446,10 +1446,10 @@ class table extends \com\ui\set\bootstrap\table {
 		// check if pages enabled
 		if (!$this->page_size || !$this->enable_nav) return;
 
-		$this->page_total = \com\num::getpage($this->page_size, $this->item_total);
+		$this->page_total = \LiquidedgeApp\Octoapp\app\app\num\num::getpage($this->page_size, $this->item_total);
 		if (($this->item_total % $this->page_size) == 0 && $this->item_total > 0) $this->page_total -= 1;
 		if ($this->navigation_type == "page") {
-			$this->page_current = \com\num::getpage($this->page_size, $this->offset);
+			$this->page_current = \LiquidedgeApp\Octoapp\app\app\num\num::getpage($this->page_size, $this->offset);
 		}
 	}
 	//--------------------------------------------------------------------------------
@@ -1927,23 +1927,23 @@ class table extends \com\ui\set\bootstrap\table {
 				// format value
 				switch ($field_item["format"]) {
 					case DB_SECONDS :
-						$content = (is_numeric($content) ? \com\num::hms($content) : $content);
+						$content = (is_numeric($content) ? \LiquidedgeApp\Octoapp\app\app\num\num::hms($content) : $content);
 						break;
 
 					case DB_MINUTES :
-						$content = (is_numeric($content) ? \com\num::hm($content) : $content);
+						$content = (is_numeric($content) ? \LiquidedgeApp\Octoapp\app\app\num\num::hm($content) : $content);
 						break;
 
 					case DB_MILISECONDS :
-						$content = (is_numeric($content) ? \com\num::hmsm($content) : $content);
+						$content = (is_numeric($content) ? \LiquidedgeApp\Octoapp\app\app\num\num::hmsm($content) : $content);
 						break;
 
 					case DB_DURATION :
-						$content = (is_numeric($content) ? \com\num::duration($content) : $content);
+						$content = (is_numeric($content) ? \LiquidedgeApp\Octoapp\app\app\num\num::duration($content) : $content);
 						break;
 
 					case DB_BYTES :
-						$content = (is_numeric($content) ? \com\num::kbmbgb($content) : $content);
+						$content = (is_numeric($content) ? \LiquidedgeApp\Octoapp\app\app\num\num::kbmbgb($content) : $content);
 						break;
 
 					case DB_INT :
@@ -1967,19 +1967,19 @@ class table extends \com\ui\set\bootstrap\table {
 						break;
 
 					case DB_DATE :
-						$content = \com\data::format_html($content, DB_DATE);
+						$content = \LiquidedgeApp\Octoapp\app\app\data\data::format_html($content, DB_DATE);
 						break;
 
 					case DB_DATETIME :
-						$content = \com\data::format_html($content, DB_DATETIME);
+						$content = \LiquidedgeApp\Octoapp\app\app\data\data::format_html($content, DB_DATETIME);
 						break;
 
 					case DB_YEARMONTH :
-						$content = \com\data::format_html($content, DB_YEARMONTH);
+						$content = \LiquidedgeApp\Octoapp\app\app\data\data::format_html($content, DB_YEARMONTH);
 						break;
 
 					case DB_CURRENCY :
-						$content = (is_numeric($content) ? \com\num::currency($content, ["decimals" => $field_item["decimals"], "trim" => 2, "include_symbol" => !$field_item["hide_currency_symbol"]]) : $content);
+						$content = (is_numeric($content) ? \LiquidedgeApp\Octoapp\app\app\num\num::currency($content, ["decimals" => $field_item["decimals"], "trim" => 2, "include_symbol" => !$field_item["hide_currency_symbol"]]) : $content);
 						break;
 
 					case DB_BOOL :
@@ -2167,7 +2167,7 @@ class table extends \com\ui\set\bootstrap\table {
 
 				if (isset($this->total_arr[$field_item["field"]])) $content = $this->total_arr[$field_item["field"]];
 				else $content = "";
-				$content = (is_numeric($content) && !$field_item["total_no_currency"] ? \com\num::currency($content) : $content);
+				$content = (is_numeric($content) && !$field_item["total_no_currency"] ? \LiquidedgeApp\Octoapp\app\app\num\num::currency($content) : $content);
 
 				$total_options = [
 					"^" => $content,
@@ -2362,7 +2362,7 @@ class table extends \com\ui\set\bootstrap\table {
 		// file
 		$file = new \com\file("php://output/{$options["filename"]}", ["timestamp" => true]);
 		$file->add_filter("null", "-");
-		$file->encoding = \com\data::ENCODE_WIN;
+		$file->encoding = \LiquidedgeApp\Octoapp\app\app\data\data::ENCODE_WIN;
 
 		// headers
 		$header_arr = [];

@@ -48,7 +48,7 @@ class form_value2 extends \com\ui\intf\element {
 
 		// value
 		if ($type !== false) {
-			$value = \com\data::format_html($value, $type);
+			$value = \LiquidedgeApp\Octoapp\app\app\data\data::format_html($value, $type);
 			$options["valuehtml"] = true;
 		}
 

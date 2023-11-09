@@ -81,7 +81,7 @@ class html_buffer extends \com\ui\set\bootstrap\html {
 		$this->options = $options;
 
 		// params
-    	$this->ignore_columns = \core::$app->get_request()->get("comhtmlignorecolumns", \com\data::TYPE_BOOL, ["get" => true]);
+    	$this->ignore_columns = \core::$app->get_request()->get("comhtmlignorecolumns", \LiquidedgeApp\Octoapp\app\app\data\data::TYPE_BOOL, ["get" => true]);
 
 		// unique id
     	$this->id = \com\session::$current->session_uid;

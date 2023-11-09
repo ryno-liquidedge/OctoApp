@@ -45,7 +45,7 @@ class price extends \com\ui\intf\element {
 		$buffer = \LiquidedgeApp\Octoapp\app\app\ui\ui::make()->buffer();
 		$buffer->div_([".price-wrapper" => true]);
 
-			$options["*"] = \com\num::currency($options["amount"], $options);
+			$options["*"] = \LiquidedgeApp\Octoapp\app\app\num\num::currency($options["amount"], $options);
 			$buffer->span($options);
 
 			if($options["sup"]){

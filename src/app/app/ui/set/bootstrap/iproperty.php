@@ -73,50 +73,50 @@ class iproperty extends \LiquidedgeApp\Octoapp\app\app\ui\intf\element {
 		switch ($this->solid->get_data_type()) {
 
 			// select
-  			case \com\data::TYPE_ENUM       :
+  			case \LiquidedgeApp\Octoapp\app\app\data\data::TYPE_ENUM       :
   				if(!$options["value_option_arr"]) $options["value_option_arr"] = [null => "-- Not Selected --"] + $this->solid->get_data_arr();
   				return \LiquidedgeApp\Octoapp\app\app\ui\ui::make()->iselect($field, $options["value_option_arr"], $value, $label, $options);
-  			case \com\data::TYPE_BOOL       : return \LiquidedgeApp\Octoapp\app\app\ui\ui::make()->iradio($field, [0 => "No", 1 => "Yes"], $value ? 1 : 0, $label, $options);
+  			case \LiquidedgeApp\Octoapp\app\app\data\data::TYPE_BOOL       : return \LiquidedgeApp\Octoapp\app\app\ui\ui::make()->iradio($field, [0 => "No", 1 => "Yes"], $value ? 1 : 0, $label, $options);
 
 			// date
-  			case \com\data::TYPE_DATE		: return \LiquidedgeApp\Octoapp\app\app\ui\ui::make()->idate($field, $value, $label, $options);
-			case \com\data::TYPE_YEARMONTH	: return \LiquidedgeApp\Octoapp\app\app\ui\ui::make()->iyearmonth($field, $value, $label, $options);
-			case \com\data::TYPE_DATETIME	: return \LiquidedgeApp\Octoapp\app\app\ui\ui::make()->idatetime($field, $value, $label, $options);
-			case \com\data::TYPE_TIME		: return \LiquidedgeApp\Octoapp\app\app\ui\ui::make()->itime($field, $value, $label, $options);
+  			case \LiquidedgeApp\Octoapp\app\app\data\data::TYPE_DATE		: return \LiquidedgeApp\Octoapp\app\app\ui\ui::make()->idate($field, $value, $label, $options);
+			case \LiquidedgeApp\Octoapp\app\app\data\data::TYPE_YEARMONTH	: return \LiquidedgeApp\Octoapp\app\app\ui\ui::make()->iyearmonth($field, $value, $label, $options);
+			case \LiquidedgeApp\Octoapp\app\app\data\data::TYPE_DATETIME	: return \LiquidedgeApp\Octoapp\app\app\ui\ui::make()->idatetime($field, $value, $label, $options);
+			case \LiquidedgeApp\Octoapp\app\app\data\data::TYPE_TIME		: return \LiquidedgeApp\Octoapp\app\app\ui\ui::make()->itime($field, $value, $label, $options);
 
 			// text
-  			case \com\data::TYPE_BYTES 		:
-  			case \com\data::TYPE_SECONDS 	:
-  			case \com\data::TYPE_MINUTES 	:
+  			case \LiquidedgeApp\Octoapp\app\app\data\data::TYPE_BYTES 		:
+  			case \LiquidedgeApp\Octoapp\app\app\data\data::TYPE_SECONDS 	:
+  			case \LiquidedgeApp\Octoapp\app\app\data\data::TYPE_MINUTES 	:
   				if($value == 0) $value = false;
 				return \LiquidedgeApp\Octoapp\app\app\ui\ui::make()->itext($field, $value, $label, array_merge(["limit" => "numeric", "@placeholder" => "0"], $options));
 
-			case \com\data::TYPE_INT 		:
+			case \LiquidedgeApp\Octoapp\app\app\data\data::TYPE_INT 		:
   				if($value == 0) $value = false;
 				return \LiquidedgeApp\Octoapp\app\app\ui\ui::make()->icounter($field, $value, array_merge(["limit" => "numeric", "label" => $label, "@placeholder" => "0"], $options));
 
-  			case \com\data::TYPE_FLOAT 		:
+  			case \LiquidedgeApp\Octoapp\app\app\data\data::TYPE_FLOAT 		:
   				if($value == 0) $value = false;
 				return \LiquidedgeApp\Octoapp\app\app\ui\ui::make()->itext($field, $value, $label, array_merge(["limit" => "fraction", "@placeholder" => "0"], $options));
 
-  			case \com\data::TYPE_STRING     : return \LiquidedgeApp\Octoapp\app\app\ui\ui::make()->itext($field, $value, $label, $options);
-			case \com\data::TYPE_EMAIL		: return \LiquidedgeApp\Octoapp\app\app\ui\ui::make()->itext($field, $value, $label, array_merge(["limit" => "email"], $options));
-  			case \com\data::TYPE_TELNR 		: return \LiquidedgeApp\Octoapp\app\app\ui\ui::make()->itext($field, ($value == "  " ? false : $value), $label, array_merge([".ui-itel" => true], $options));
+  			case \LiquidedgeApp\Octoapp\app\app\data\data::TYPE_STRING     : return \LiquidedgeApp\Octoapp\app\app\ui\ui::make()->itext($field, $value, $label, $options);
+			case \LiquidedgeApp\Octoapp\app\app\data\data::TYPE_EMAIL		: return \LiquidedgeApp\Octoapp\app\app\ui\ui::make()->itext($field, $value, $label, array_merge(["limit" => "email"], $options));
+  			case \LiquidedgeApp\Octoapp\app\app\data\data::TYPE_TELNR 		: return \LiquidedgeApp\Octoapp\app\app\ui\ui::make()->itext($field, ($value == "  " ? false : $value), $label, array_merge([".ui-itel" => true], $options));
   			
-  			case \com\data::TYPE_JSON 		:
-  			case \com\data::TYPE_XML 		:
-  			case \com\data::TYPE_TEXT 		:
+  			case \LiquidedgeApp\Octoapp\app\app\data\data::TYPE_JSON 		:
+  			case \LiquidedgeApp\Octoapp\app\app\data\data::TYPE_XML 		:
+  			case \LiquidedgeApp\Octoapp\app\app\data\data::TYPE_TEXT 		:
   				return \LiquidedgeApp\Octoapp\app\app\ui\ui::make()->itext($field, $value, $label, array_merge(["rows" => 5], $options));
 
-  			case \com\data::TYPE_HTML 		:
+  			case \LiquidedgeApp\Octoapp\app\app\data\data::TYPE_HTML 		:
   			    if(!isset($options["wysiwyg"]))$options["wysiwyg"] = true;
   			    $options["allow_tag_arr"] = ["a", "iframe"];
   				return \LiquidedgeApp\Octoapp\app\app\ui\ui::make()->itext($field, $value, $label, array_merge(["rows" => 5], $options));
 
-  			case \com\data::TYPE_MILISECONDS	:
-  			case \com\data::TYPE_DURATION	:
-  			case \com\data::TYPE_PERCENTAGE :
-  			case \com\data::TYPE_CURRENCY :
+  			case \LiquidedgeApp\Octoapp\app\app\data\data::TYPE_MILISECONDS	:
+  			case \LiquidedgeApp\Octoapp\app\app\data\data::TYPE_DURATION	:
+  			case \LiquidedgeApp\Octoapp\app\app\data\data::TYPE_PERCENTAGE :
+  			case \LiquidedgeApp\Octoapp\app\app\data\data::TYPE_CURRENCY :
   				if($value == 0) $value = false;
 				if ($value != "0.0") {
 					if (preg_match("/^\\./i", $value)) $value = "0{$value}";

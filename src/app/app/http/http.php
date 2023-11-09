@@ -242,12 +242,12 @@ class http extends \com\http{
 	 */
     public static function get_seo_url($context, $db_obj = false, $options = []): string {
 
-	    return \LiquidedgeApp\Octoapp\app\app\http\seo::make()->get_url($context, $db_obj, $options);
+	    return \LiquidedgeApp\Octoapp\app\app\seo\seo::make()->get_url($context, $db_obj, $options);
 
     }
     //--------------------------------------------------------------------------------
     public static function get_seo_control($context, $options = []): string {
-        $seo = \LiquidedgeApp\Octoapp\app\app\http\seo::make();
+        $seo = \LiquidedgeApp\Octoapp\app\app\seo\seo::make();
         $item = $seo->get_context($context);
 
         return $item ? $item->control : false;

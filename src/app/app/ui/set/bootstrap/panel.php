@@ -35,7 +35,7 @@ class panel extends \com\ui\set\bootstrap\panel {
 
 		// id
 		$this->id = ($options["id"] ? $options["id"] : \com\session::$current->session_uid);
-		$this->pop = \core::$app->get_request()->get("pop", \com\data::TYPE_BOOL, ["trusted" => true]);
+		$this->pop = \core::$app->get_request()->get("pop", \LiquidedgeApp\Octoapp\app\app\data\data::TYPE_BOOL, ["trusted" => true]);
 
 		// url
 		if ($options["url"]) $this->start_index = $this->add_url($options["url"]);

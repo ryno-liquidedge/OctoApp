@@ -40,12 +40,12 @@ class itext_property extends \com\ui\intf\element {
         // display input based on db field type
 		switch ($solid_class->get_data_type()) {
 
-  			case \com\data::TYPE_STRING:
+  			case \LiquidedgeApp\Octoapp\app\app\data\data::TYPE_STRING:
   			    $buffer->xitext($solid_class->get_form_id(), $value, $options["label"], $options);
                 break;
 
-            case \com\data::TYPE_TEXT:
-            case \com\data::TYPE_HTML:
+            case \LiquidedgeApp\Octoapp\app\app\data\data::TYPE_TEXT:
+            case \LiquidedgeApp\Octoapp\app\app\data\data::TYPE_HTML:
                 $rows = isset($options["rows"]) ? $options["rows"] : 5;
   			    $buffer->xitextarea($solid_class->get_form_id(), $value, $options["label"], $rows, $options);
                 break;
