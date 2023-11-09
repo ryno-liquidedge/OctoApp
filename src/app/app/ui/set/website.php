@@ -8,15 +8,23 @@ namespace LiquidedgeApp\Octoapp\app\app\ui\set;
  * @copyright Copyright Liquid Edge Solutions. All rights reserved.
  */
 class website extends \com\ui\set\bootstrap {
+
+	private string $dir_com_inc;
+	private string $dir_app_app_inc;
+	private string $dir_app_app_ui_inc;
+	private string $dir_composer;
+
 	//--------------------------------------------------------------------------------
 	// magic
 	//--------------------------------------------------------------------------------
 	protected function __construct($options = []) {
 		// init
 		$this->name = "Website";
+		$this->dir_com_inc = \core::$folders->get_com()."/inc";
+		$this->dir_composer = \core::$folders->get_app()."/inc/composer/vendor";
+		$this->dir_app_app_inc = \LiquidedgeApp\Octoapp\Core::DIR_APP_APP_INC;
+		$this->dir_app_app_ui_inc = \LiquidedgeApp\Octoapp\Core::DIR_APP_APP_UI_INC;
 	}
-	//--------------------------------------------------------------------------------
-	// functions
 	//--------------------------------------------------------------------------------
 	// functions
 	//--------------------------------------------------------------------------------
@@ -31,15 +39,16 @@ class website extends \com\ui\set\bootstrap {
 	//--------------------------------------------------------------------------------
     protected function get_class_name($name){
 
-		//evaluate app - custom folder
-	    if(file_exists(\core::$folders->get_app_app()."/ui/set/custom/app.ui.set.custom.$name.php")){
-	        return "\\app\\ui\\set\\custom\\{$name}";
-        }
+		$dir_arr = [
+			__DIR__."/custom/" => "\\LiquidedgeApp\\Octoapp\\app\\app\\ui\\set\\custom\\{$name}",
+			__DIR__."/bootstrap/" => "\\LiquidedgeApp\\Octoapp\\app\\app\\ui\\set\\bootstrap\\{$name}",
+			"{$this->dir_app_app_inc}/ui/set/custom/" => "\\app\\ui\\set\\custom\\{$name}",
+			"{$this->dir_app_app_inc}/ui/set/bootstrap/" => "\\app\\ui\\set\\bootstrap\\{$name}",
+		];
 
-	    //evaluate app - bootstrap folder
-	    if(file_exists(\core::$folders->get_app_app()."/ui/set/bootstrap/app.ui.set.bootstrap.$name.php")){
-	        return "\\app\\ui\\set\\bootstrap\\{$name}";
-        }
+		foreach ($dir_arr as $dir => $class){
+			if(file_exists($dir)) return $class;
+		}
 
         //default to com
 	    return "\\com\\ui\\set\\bootstrap\\{$name}";
@@ -48,65 +57,61 @@ class website extends \com\ui\set\bootstrap {
 	//--------------------------------------------------------------------------------
 	public function get_js_includes() {
 		// init
-		$path_inc = \core::$folders->get_com()."/inc";
-		$composer_inc = \core::$folders->get_app()."/inc/composer/vendor";
-		$path_ui = \core::$folders->get_com()."/ui/inc";
-		$path_js = \core::$folders->get_app_app()."/ui/inc/js";
 		$js_arr = [
 			//jquery
-            "{$path_js}/jquery-ui.min.js",
-			"{$path_js}/core/jquery.extend.js",
+            "{$this->dir_app_app_ui_inc}/js/jquery-ui.min.js",
+			"{$this->dir_app_app_ui_inc}/js/core/jquery.extend.js",
 
 			// bootstrap
-			"{$composer_inc}/twbs/bootstrap/dist/js/bootstrap.bundle.min.js",
+			"{$this->dir_composer}/twbs/bootstrap/dist/js/bootstrap.bundle.min.js",
 
             //underscore js
-			"{$path_js}/underscore.js",
+			"{$this->dir_app_app_ui_inc}/js/underscore.js",
 
 			// nova
-			"{$path_js}/core/app.ui.bootstrap.core.js",
-			"{$path_js}/core/app.ui.bootstrap.table.js",
-			"{$path_js}/core/app.ui.bootstrap.panel.js",
-			"{$path_js}/core/app.ui.bootstrap.tab.js",
-			"{$path_js}/core/app.ui.bootstrap.form.js",
-			"{$path_js}/core/app.ui.bootstrap.ping.js",
-			"{$path_js}/core/app.ui.bootstrap.button.js",
-			"{$path_js}/core/app.ui.bootstrap.menu.js",
-			"{$path_js}/core/app.ui.bootstrap.popup.js",
-			"{$path_js}/core/app.ui.bootstrap.lazy_loader.js",
-			"{$path_js}/core/app.ui.bootstrap.ui.js",
-			"{$path_js}/core/app.ui.bootstrap.calendar.js",
+			"{$this->dir_app_app_ui_inc}/js/core/app.ui.bootstrap.core.js",
+			"{$this->dir_app_app_ui_inc}/js/core/app.ui.bootstrap.table.js",
+			"{$this->dir_app_app_ui_inc}/js/core/app.ui.bootstrap.panel.js",
+			"{$this->dir_app_app_ui_inc}/js/core/app.ui.bootstrap.tab.js",
+			"{$this->dir_app_app_ui_inc}/js/core/app.ui.bootstrap.form.js",
+			"{$this->dir_app_app_ui_inc}/js/core/app.ui.bootstrap.ping.js",
+			"{$this->dir_app_app_ui_inc}/js/core/app.ui.bootstrap.button.js",
+			"{$this->dir_app_app_ui_inc}/js/core/app.ui.bootstrap.menu.js",
+			"{$this->dir_app_app_ui_inc}/js/core/app.ui.bootstrap.popup.js",
+			"{$this->dir_app_app_ui_inc}/js/core/app.ui.bootstrap.lazy_loader.js",
+			"{$this->dir_app_app_ui_inc}/js/core/app.ui.bootstrap.ui.js",
+			"{$this->dir_app_app_ui_inc}/js/core/app.ui.bootstrap.calendar.js",
 
             //highlighter
-			"{$path_js}/highlighter.js",
+			"{$this->dir_app_app_ui_inc}/js/highlighter.js",
 
 			// bootstrap-datetimepicker & calendar
-			"{$path_js}/moment.js",
-			\core::$folders->get_app_app()."/inc/datetimepicker/inc/js/tempusdominus-bootstrap-4.js",
-			\core::$folders->get_app_app()."/inc/datetimepicker/inc/js/tempusdominus-bootstrap-4-append.js",
+			"{$this->dir_app_app_ui_inc}/js/moment.js",
+			"{$this->dir_app_app_inc}/datetimepicker/inc/js/tempusdominus-bootstrap-4.js",
+			"{$this->dir_app_app_inc}/datetimepicker/inc/js/tempusdominus-bootstrap-4-append.js",
 
 			//dropzone
-			\core::$folders->get_app_app()."/inc/dropzone/inc/js/dropzone.min.js",
-			\core::$folders->get_app_app()."/inc/dropzone/inc/js/cropper.min.js",
-            \core::$folders->get_app_app()."/inc/dropzone/inc/js/jquery-cropper.min.js",
+			"{$this->dir_app_app_inc}/dropzone/inc/js/dropzone.min.js",
+			"{$this->dir_app_app_inc}/dropzone/inc/js/cropper.min.js",
+            "{$this->dir_app_app_inc}/dropzone/inc/js/jquery-cropper.min.js",
 
             //fancybox
-			\core::$folders->get_app_app()."/inc/fancybox/inc/js/jquery.fancybox.min.js",
-			\core::$folders->get_app_app()."/inc/fancybox/inc/js/jquery.fancybox.addon.js",
+			"{$this->dir_app_app_inc}/fancybox/inc/js/jquery.fancybox.min.js",
+			"{$this->dir_app_app_inc}/fancybox/inc/js/jquery.fancybox.addon.js",
 
-			"{$path_js}/jquery.checkboxes-1.2.2.js",
+			"{$this->dir_app_app_ui_inc}/js/jquery.checkboxes-1.2.2.js",
 
             //range slider
-			"{$path_js}/ion.rangeslider.min.js",
+			"{$this->dir_app_app_ui_inc}/js/ion.rangeslider.min.js",
 
 			//parallax
-			"{$path_js}/aos.js",
-			"{$path_js}/bootstrap.parallax.js",
+			"{$this->dir_app_app_ui_inc}/js/aos.js",
+			"{$this->dir_app_app_ui_inc}/js/bootstrap.parallax.js",
 
 			//custom
-			"{$path_js}/magicsuggest.js",
-			"{$path_js}/bootstrap-multiselect.js",
-			"{$path_js}/website.js",
+			//"{$this->dir_app_ui_inc}/js/magicsuggest.js",
+			//"{$this->dir_app_ui_inc}/js/bootstrap-multiselect.js",
+			"{$this->dir_app_app_ui_inc}/js/website.js",
 		];
 
 		// done
@@ -115,40 +120,37 @@ class website extends \com\ui\set\bootstrap {
 	//--------------------------------------------------------------------------------
 	public function get_css_includes() {
 		// init
-		$path_css = \core::$folders->get_app_app()."/ui/inc/css";
-		$path_inc = \core::$folders->get_com()."/inc";
-		$path_ui = \core::$folders->get_com()."/ui/inc";
 		$css_arr = [
 			// bootstrap
-			"{$path_css}/bootstrap.css",
-			"{$path_css}/bootstrap.append.css",
-			"{$path_css}/bootstrap-grid.css",
-			"{$path_css}/bootstrap-reboot.css",
-			"{$path_css}/bootstrap-icons.css",
+			"{$this->dir_app_app_ui_inc}/css/bootstrap.css",
+			"{$this->dir_app_app_ui_inc}/css/bootstrap.append.css",
+			"{$this->dir_app_app_ui_inc}/css/bootstrap-grid.css",
+			"{$this->dir_app_app_ui_inc}/css/bootstrap-reboot.css",
+			"{$this->dir_app_app_ui_inc}/css/bootstrap-icons.css",
 
-            "{$path_css}/jquery-ui.min.css",
+            "{$this->dir_app_app_ui_inc}/css/jquery-ui.min.css",
 
 			// datetimepicker
-			\core::$folders->get_app_app()."/inc/datetimepicker/inc/css/tempusdominus-bootstrap-4-build.css",
+			"{$this->dir_app_app_inc}/datetimepicker/inc/css/tempusdominus-bootstrap-4-build.css",
 
 			// dropzone
-			\core::$folders->get_app_app()."/inc/dropzone/inc/css/dropzone.css",
-            \core::$folders->get_app_app()."/inc/dropzone/inc/css/cropper.css",
+			"{$this->dir_app_app_inc}/dropzone/inc/css/dropzone.css",
+            "{$this->dir_app_app_inc}/dropzone/inc/css/cropper.css",
 
             //fancybox
-			\core::$folders->get_app_app()."/inc/fancybox/inc/css/jquery.fancybox.css",
-			\core::$folders->get_app_app()."/inc/fancybox/inc/css/jquery.fancybox.addon.css",
+			"{$this->dir_app_app_inc}/fancybox/inc/css/jquery.fancybox.css",
+			"{$this->dir_app_app_inc}/fancybox/inc/css/jquery.fancybox.addon.css",
 
             //range slider
-			"{$path_css}/ion.rangeslider.css",
+			"{$this->dir_app_app_ui_inc}/css/ion.rangeslider.css",
 
 			//custom
-			"{$path_css}/magicsuggest.css",
-			"{$path_css}/bootstrap-multiselect.css",
-			"{$path_css}/aos.css",
-			"{$path_css}/app_ui_standards.css",
-			"{$path_css}/app_ui.css",
-			"{$path_css}/website.css",
+			"{$this->dir_app_app_ui_inc}/css/magicsuggest.css",
+			"{$this->dir_app_app_ui_inc}/css/bootstrap-multiselect.css",
+			"{$this->dir_app_app_ui_inc}/css/aos.css",
+			"{$this->dir_app_app_ui_inc}/css/app_ui_standards.css",
+			"{$this->dir_app_app_ui_inc}/css/app_ui.css",
+			"{$this->dir_app_app_ui_inc}/css/website.css",
 		];
 
 		// done
@@ -158,8 +160,7 @@ class website extends \com\ui\set\bootstrap {
 	public function get_css_print_includes() {
 		// init
 		$path_ui = \core::$folders->get_com()."/ui/inc";
-		$css_arr = [
-		];
+		$css_arr = [];
 
 		// done
 		return $css_arr;
