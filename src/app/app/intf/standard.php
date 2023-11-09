@@ -8,6 +8,6 @@ namespace LiquidedgeApp\Octoapp\app\app\intf;
  * @author Liquid Edge Solutions
  * @copyright Copyright Liquid Edge Solutions. All rights reserved.
  */
-abstract class standard extends \LiquidedgeApp\Octoapp\app\app\intf\standard{
+abstract class standard extends \com\intf\standard {
 	//--------------------------------------------------------------------------------
 }

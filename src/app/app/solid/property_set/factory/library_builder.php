@@ -41,7 +41,7 @@ EOD;
 		};
 
 		//first load local set
-		$glob_arr = glob(__DIR__."../solid_classes/*");
+		$glob_arr = glob(str_replace("factory", "solid_classes", __DIR__."/*"));
 		foreach ($glob_arr as $folder) $fn_load_folder($folder);
 
 		//load app versions
@@ -53,7 +53,16 @@ EOD;
 	}
 	//--------------------------------------------------------------------------------
 	public function get_class_name_from_filename($filename) {
+
 		$basename = basename($filename);
+
+		if(strpos($basename, "app.solid.property_set.solid_classes.") === false){
+			$filename_parts = explode("/", str_replace("\\", "/", $filename));
+			$folder = $filename_parts[sizeof($filename_parts)-2];
+
+			return "\\LiquidedgeApp\\Octoapp\\app\\app\\solid\\property_set\\solid_classes\\{$folder}\\".str_replace(".php", "", $basename);
+		}
+
 		return "\\" . str_replace(".", "\\", str_replace(".php", "", $basename));
 	}
 	//--------------------------------------------------------------------------------
