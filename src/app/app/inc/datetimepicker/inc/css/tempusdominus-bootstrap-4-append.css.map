@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAMQ,6CAAQ;EACJ,MAAM,EAAE,WAAW",
+"sources": ["../scss/tempusdominus-bootstrap-4-append.scss"],
+"names": [],
+"file": "tempusdominus-bootstrap-4-append.css"
+}

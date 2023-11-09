@@ -1,0 +1,142 @@
+// Custom Bootstrap 5 Variables
+@import "variables";
+
+// scss-docs-start text-shadow-variables
+$text-shadow:                  1px 1px 3px rgba($black, .50) !default;
+$text-shadow-sm:               1px 1px 1px rgba($black, .50) !default;
+$text-shadow-lg:               1px 1px 5px rgba($black, .50) !default;
+
+// scss-docs-start color-variables
+$night:     #040936 !default;
+$dream:     #580742 !default;
+$sky:       #10acf6 !default;
+$velvet:    #64142d !default;
+$chocolate: #5a2e2e !default;
+$fresh:     #53c01d !default;
+$lime:      #D3E000 !default;
+$rose:      #B0909C !default;
+$cream:     #f2e4bd !default;
+
+$twitter:       #1DA1F2 !default;
+$pinterest:     #B7081B !default;
+$youtube:       #FF0000 !default;
+$instagram:     #F70261 !default;
+$facebook:      #4867AA !default;
+
+$primary-dark:  darken($primary, 25%) !default;
+
+$colors: (
+  "blue":       $blue,
+  "indigo":     $indigo,
+  "purple":     $purple,
+  "pink":       $pink,
+  "red":        $red,
+  "orange":     $orange,
+  "yellow":     $yellow,
+  "green":      $green,
+  "lime":      $lime,
+  "teal":       $teal,
+  "cyan":       $cyan,
+  "white":      $white,
+  "gray":       $gray-600,
+  "gray-dark":  $gray-800,
+
+  "night":         $night,
+  "dream":          $dream,
+  "dream-dark":    $dream,
+  "sky":           $sky,
+  "velvet":        $velvet,
+  "fresh":         $fresh,
+  "rose":          $rose,
+  "cream":         $cream,
+
+"facebook":         $facebook,
+"instagram":        $instagram,
+"youtube":          $youtube,
+"pinterest":        $pinterest,
+"twitter":          $twitter,
+);
+
+
+$night-100: tint-color($night, 80%) !default;
+$night-200: tint-color($night, 60%) !default;
+$night-300: tint-color($night, 40%) !default;
+$night-400: tint-color($night, 20%) !default;
+$night-500: $night !default;
+$night-600: shade-color($night, 20%) !default;
+$night-700: shade-color($night, 40%) !default;
+$night-800: shade-color($night, 60%) !default;
+$night-900: shade-color($night, 80%) !default;
+
+$dream-100: tint-color($dream, 80%) !default;
+$dream-200: tint-color($dream, 60%) !default;
+$dream-300: tint-color($dream, 40%) !default;
+$dream-400: tint-color($dream, 20%) !default;
+$dream-500: $dream !default;
+$dream-600: shade-color($dream, 20%) !default;
+$dream-700: shade-color($dream, 40%) !default;
+$dream-800: shade-color($dream, 60%) !default;
+$dream-900: shade-color($dream, 80%) !default;
+
+$velvet-100: tint-color($velvet, 80%) !default;
+$velvet-200: tint-color($velvet, 60%) !default;
+$velvet-300: tint-color($velvet, 40%) !default;
+$velvet-400: tint-color($velvet, 20%) !default;
+$velvet-500: $velvet !default;
+$velvet-600: shade-color($velvet, 20%) !default;
+$velvet-700: shade-color($velvet, 40%) !default;
+$velvet-800: shade-color($velvet, 60%) !default;
+$velvet-900: shade-color($velvet, 80%) !default;
+
+$sky-100: tint-color($sky, 80%) !default;
+$sky-200: tint-color($sky, 60%) !default;
+$sky-300: tint-color($sky, 40%) !default;
+$sky-400: tint-color($sky, 20%) !default;
+$sky-500: $sky !default;
+$sky-600: shade-color($sky, 20%) !default;
+$sky-700: shade-color($sky, 40%) !default;
+$sky-800: shade-color($sky, 60%) !default;
+$sky-900: shade-color($sky, 80%) !default;
+
+$fresh-100: tint-color($fresh, 80%) !default;
+$fresh-200: tint-color($fresh, 60%) !default;
+$fresh-300: tint-color($fresh, 40%) !default;
+$fresh-400: tint-color($fresh, 20%) !default;
+$fresh-500: $fresh !default;
+$fresh-600: shade-color($fresh, 20%) !default;
+$fresh-700: shade-color($fresh, 40%) !default;
+$fresh-800: shade-color($fresh, 60%) !default;
+$fresh-900: shade-color($fresh, 80%) !default;
+
+$rose-100: tint-color($rose, 80%) !default;
+$rose-200: tint-color($rose, 60%) !default;
+$rose-300: tint-color($rose, 40%) !default;
+$rose-400: tint-color($rose, 20%) !default;
+$rose-500: $rose !default;
+$rose-600: shade-color($rose, 20%) !default;
+$rose-700: shade-color($rose, 40%) !default;
+$rose-800: shade-color($rose, 60%) !default;
+$rose-900: shade-color($rose, 80%) !default;
+
+$cream-100: tint-color($cream, 80%) !default;
+$cream-200: tint-color($cream, 60%) !default;
+$cream-300: tint-color($cream, 40%) !default;
+$cream-400: tint-color($cream, 20%) !default;
+$cream-500: $cream !default;
+$cream-600: shade-color($cream, 20%) !default;
+$cream-700: shade-color($cream, 40%) !default;
+$cream-800: shade-color($cream, 60%) !default;
+$cream-900: shade-color($cream, 80%) !default;
+
+$chocolate-100: tint-color($chocolate, 80%) !default;
+$chocolate-200: tint-color($chocolate, 60%) !default;
+$chocolate-300: tint-color($chocolate, 40%) !default;
+$chocolate-400: tint-color($chocolate, 20%) !default;
+$chocolate-500: $chocolate !default;
+$chocolate-600: shade-color($chocolate, 20%) !default;
+$chocolate-700: shade-color($chocolate, 40%) !default;
+$chocolate-800: shade-color($chocolate, 60%) !default;
+$chocolate-900: shade-color($chocolate, 80%) !default;
+
+$dividered-width: 100%;
+$dividered-margintop: 0.1rem;

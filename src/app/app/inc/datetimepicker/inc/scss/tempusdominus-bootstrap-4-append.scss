@@ -1,0 +1,11 @@
+// Import bootstrap variables including default color palette and fonts
+@import "../../../../ui/inc/scss/bootstrap/functions";
+@import "../../../../ui/inc/scss/bootstrap/variables";
+
+.bootstrap-datetimepicker-widget{
+    & table{
+        & td.day{
+            border: transparent;
+        }
+    }
+}

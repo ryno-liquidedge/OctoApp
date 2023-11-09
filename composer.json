@@ -21,7 +21,12 @@
     "tinify/tinify": "1.6.1",
     "liquidedge/tcpdf": "6.5.0.*",
     "liquidedge/octoapi": "1.0.*",
-    "imagecow/imagecow": "2.4.1"
+    "imagecow/imagecow": "2.4.1",
+
+    "mailchimp/marketing": "3.0.80",
+
+    "matthiasmullie/scrapbook": "1.5.1",
+    "league/flysystem": "3.19.0"
   },
   "repositories": [
     {

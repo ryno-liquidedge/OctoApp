@@ -1,0 +1,78 @@
+
+//import bootstrap
+@import "bootstrap/functions";
+@import "bootstrap/variables";
+
+.fc-unthemed{
+    & td{
+        &.fc-today{
+            background:$indigo-200;
+        }
+    }
+}
+
+.fc-day.disabled{
+    background: $red-100;
+}
+.fc-day.fc-past, .fc-day-top{
+    background: $gray-200;
+    border-color: $gray-400;
+}
+
+.fc-highlight{
+    background: none;
+}
+.fc .fc-button-group > *{
+    margin: 2px 1px 2px 1px;
+}
+.fc button{
+    background-image: none;
+    color: #fff;
+    background-color: $primary;
+    border: 1px solid $primary !important;
+
+    margin: 2px 0px;
+    box-shadow: none;
+    height: unset;
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    padding: 0.3rem 0.7rem;
+    font-size: 0.9rem;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out,background-color 0.15s ease-in-out,border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
+    &:hover{
+        color: #fff;
+        background-color: #492b75;
+        border-color: #45296e;
+    }
+
+}
+
+.fc-event{
+    cursor: pointer;
+}
+
+.fc-event{
+    &.text-nowrap{
+        & .fc-title{
+            white-space: nowrap !important;
+        }
+    }
+
+    &.text-wrap{
+        & .fc-title{
+            white-space: initial !important;
+        }
+    }
+}
+
+.fc-scroller{
+    overflow: auto !important;
+    height: auto !important;
+}
