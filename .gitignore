@@ -2,3 +2,5 @@
 # Composer
 #-------------------------
 vendor/
+.idea/OctoApp.iml
+.idea/php.xml
