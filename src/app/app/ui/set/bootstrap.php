@@ -40,10 +40,10 @@ class bootstrap extends \com\ui\set\bootstrap {
     protected function get_class_name($name){
 
 		$dir_arr = [
-			__DIR__."/custom/" => "\\LiquidedgeApp\\Octoapp\\app\\app\\ui\\set\\custom\\{$name}",
-			__DIR__."/bootstrap/" => "\\LiquidedgeApp\\Octoapp\\app\\app\\ui\\set\\bootstrap\\{$name}",
-			"{$this->dir_app_app_inc}/ui/set/custom/" => "\\app\\ui\\set\\custom\\{$name}",
-			"{$this->dir_app_app_inc}/ui/set/bootstrap/" => "\\app\\ui\\set\\bootstrap\\{$name}",
+			__DIR__."/custom/$name.php" => "\\LiquidedgeApp\\Octoapp\\app\\app\\ui\\set\\custom\\$name",
+			__DIR__."/bootstrap/$name.php" => "\\LiquidedgeApp\\Octoapp\\app\\app\\ui\\set\\bootstrap\\$name",
+			"{$this->dir_app_app_inc}/ui/set/custom/app.ui.set.custom.$name.php" => "\\app\\ui\\set\\custom\\$name",
+			"{$this->dir_app_app_inc}/ui/set/bootstrap/app.ui.set.bootstrap.$name.php" => "\\app\\ui\\set\\bootstrap\\$name",
 		];
 
 		foreach ($dir_arr as $dir => $class){
@@ -95,19 +95,19 @@ class bootstrap extends \com\ui\set\bootstrap {
 			// bootstrap-datetimepicker & calendar
 			"{{$this->dir_app_app_ui_inc}/js/moment.js",
 			"{$this->dir_app_app_inc}/datetimepicker/inc/js/tempusdominus-bootstrap-4.js",
-			"{$this->dir_app_app_inc}/inc/datetimepicker/inc/js/tempusdominus-bootstrap-4-append.js",
+			"{$this->dir_app_app_inc}/datetimepicker/inc/js/tempusdominus-bootstrap-4-append.js",
 
 			//dropzone
-			"{$this->dir_app_app_inc}/inc/dropzone/inc/js/dropzone.min.js",
-			"{$this->dir_app_app_inc}/inc/dropzone/inc/js/cropper.min.js",
-            "{$this->dir_app_app_inc}/inc/dropzone/inc/js/jquery-cropper.min.js",
+			"{$this->dir_app_app_inc}/dropzone/inc/js/dropzone.min.js",
+			"{$this->dir_app_app_inc}/dropzone/inc/js/cropper.min.js",
+            "{$this->dir_app_app_inc}/dropzone/inc/js/jquery-cropper.min.js",
 
 			//fancybox
-			"{$this->dir_app_app_inc}/inc/fancybox/inc/js/jquery.fancybox.min.js",
-			"{$this->dir_app_app_inc}/inc/fancybox/inc/js/jquery.fancybox.addon.js",
+			"{$this->dir_app_app_inc}/fancybox/inc/js/jquery.fancybox.min.js",
+			"{$this->dir_app_app_inc}/fancybox/inc/js/jquery.fancybox.addon.js",
 
 			// summernote
-			"{$this->dir_app_app_inc}/inc/summernote/summernote-lite.js",
+			"{$this->dir_app_app_inc}/summernote/summernote-lite.js",
 
 			//parallax
 			"{{$this->dir_app_app_ui_inc}/js/aos.js",
@@ -135,19 +135,19 @@ class bootstrap extends \com\ui\set\bootstrap {
 			"{$this->dir_app_app_ui_inc}/css/jquery-ui.min.css",
 
 			// datetimepicker
-			"{$this->dir_app_app_inc}/inc/datetimepicker/inc/css/tempusdominus-bootstrap-4-build.css",
+			"{$this->dir_app_app_inc}/datetimepicker/inc/css/tempusdominus-bootstrap-4-build.css",
 
 			// dropzone
-			"{$this->dir_app_app_inc}/inc/dropzone/inc/css/dropzone.css",
-            "{$this->dir_app_app_inc}/inc/dropzone/inc/css/cropper.css",
+			"{$this->dir_app_app_inc}/dropzone/inc/css/dropzone.css",
+            "{$this->dir_app_app_inc}/dropzone/inc/css/cropper.css",
 
 			//fancybox
-			"{$this->dir_app_app_inc}/inc/fancybox/inc/css/jquery.fancybox.css",
-			"{$this->dir_app_app_inc}/inc/fancybox/inc/css/jquery.fancybox.addon.css",
+			"{$this->dir_app_app_inc}/fancybox/inc/css/jquery.fancybox.css",
+			"{$this->dir_app_app_inc}/fancybox/inc/css/jquery.fancybox.addon.css",
 
 			// summernote
-			"{$this->dir_app_app_inc}/inc/summernote/summernote-lite.css",
-			"{$this->dir_app_app_inc}/inc/summernote/summernote.append.css",
+			"{$this->dir_app_app_inc}/summernote/summernote-lite.css",
+			"{$this->dir_app_app_inc}/summernote/summernote.append.css",
 
 			//custom
 			"{$this->dir_app_app_ui_inc}/css/bootstrap-multiselect.css",

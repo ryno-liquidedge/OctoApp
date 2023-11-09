@@ -40,10 +40,10 @@ class website extends \com\ui\set\bootstrap {
     protected function get_class_name($name){
 
 		$dir_arr = [
-			__DIR__."/custom/" => "\\LiquidedgeApp\\Octoapp\\app\\app\\ui\\set\\custom\\{$name}",
-			__DIR__."/bootstrap/" => "\\LiquidedgeApp\\Octoapp\\app\\app\\ui\\set\\bootstrap\\{$name}",
-			"{$this->dir_app_app_inc}/ui/set/custom/" => "\\app\\ui\\set\\custom\\{$name}",
-			"{$this->dir_app_app_inc}/ui/set/bootstrap/" => "\\app\\ui\\set\\bootstrap\\{$name}",
+			__DIR__."/custom/$name.php" => "\\LiquidedgeApp\\Octoapp\\app\\app\\ui\\set\\custom\\$name",
+			__DIR__."/bootstrap/$name.php" => "\\LiquidedgeApp\\Octoapp\\app\\app\\ui\\set\\bootstrap\\$name",
+			"{$this->dir_app_app_inc}/ui/set/custom/app.ui.set.custom.$name.php" => "\\app\\ui\\set\\custom\\$name",
+			"{$this->dir_app_app_inc}/ui/set/bootstrap/app.ui.set.bootstrap.$name.php" => "\\app\\ui\\set\\bootstrap\\$name",
 		];
 
 		foreach ($dir_arr as $dir => $class){
