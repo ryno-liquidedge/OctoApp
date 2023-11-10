@@ -53,7 +53,7 @@ class tab_static extends \com\ui\intf\element {
 
     	$buffer = \LiquidedgeApp\Octoapp\app\app\ui\ui::make()->buffer();
 
-        $first_index = \LiquidedgeApp\Octoapp\app\app\ui\arr::get_first_index($this->tab_arr);
+        $first_index = \LiquidedgeApp\Octoapp\app\app\arr\arr::get_first_index($this->tab_arr);
         if(!$this->active_tab)
             $this->tab_arr[$first_index]["active"] = true;
 

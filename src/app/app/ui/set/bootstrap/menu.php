@@ -206,10 +206,10 @@ class menu extends \com\ui\intf\menu {
 			"#z-index" => 1,
 		];
 
-		$class_arr = \LiquidedgeApp\Octoapp\app\app\ui\arr::extract_signature_items(".", $item);
+		$class_arr = \LiquidedgeApp\Octoapp\app\app\arr\arr::extract_signature_items(".", $item);
 		foreach ($class_arr as $class => $is_enabled) $options[".$class"] = $is_enabled;
 
-		$class_arr = \LiquidedgeApp\Octoapp\app\app\ui\arr::extract_signature_items("@", $item);
+		$class_arr = \LiquidedgeApp\Octoapp\app\app\arr\arr::extract_signature_items("@", $item);
 		foreach ($class_arr as $attr => $is_enabled) $options["@$attr"] = $is_enabled;
 
 		// disabled message
@@ -326,10 +326,10 @@ class menu extends \com\ui\intf\menu {
 			"#z-index" => 1,
 		];
 
-		$class_arr = \LiquidedgeApp\Octoapp\app\app\ui\arr::extract_signature_items(".", $item);
+		$class_arr = \LiquidedgeApp\Octoapp\app\app\arr\arr::extract_signature_items(".", $item);
 		foreach ($class_arr as $class => $is_enabled) $options[".$class"] = $is_enabled;
 
-		$class_arr = \LiquidedgeApp\Octoapp\app\app\ui\arr::extract_signature_items("@", $item);
+		$class_arr = \LiquidedgeApp\Octoapp\app\app\arr\arr::extract_signature_items("@", $item);
 		foreach ($class_arr as $attr => $is_enabled) $options["@$attr"] = $is_enabled;
 
 		// disabled message

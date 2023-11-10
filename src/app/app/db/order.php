@@ -20,7 +20,7 @@ class order{
     public function __construct($dbobj_current, $dbobj_prev) {
         
         if(!($dbobj_current instanceof \com\db\table || $dbobj_current instanceof \com\db\row)){ 
-            \com\error::create("The current db object is not an instance of a com.db.table obj");
+            \LiquidedgeApp\Octoapp\app\app\error\error::create("The current db object is not an instance of a com.db.table obj");
         }else{
             $this->dbobj_current = $dbobj_current->splat($dbobj_current);
             $this->dbobj_prev = $dbobj_prev ? $dbobj_prev->splat($dbobj_prev) : false;

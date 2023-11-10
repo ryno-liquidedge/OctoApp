@@ -67,8 +67,8 @@ class tinify extends \LiquidedgeApp\Octoapp\app\app\intf\standard {
     //--------------------------------------------------------------------------------
     public function compress() {
 
-	    if(!$this->source) return \com\error::create("No source file found");
-	    if(!$this->to_file) return \com\error::create("No dest file found");
+	    if(!$this->source) return \LiquidedgeApp\Octoapp\app\app\error\error::create("No source file found");
+	    if(!$this->to_file) return \LiquidedgeApp\Octoapp\app\app\error\error::create("No dest file found");
 
 	    \com\os::mkdir(dirname($this->to_file));
 

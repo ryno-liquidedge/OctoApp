@@ -811,7 +811,7 @@ class table extends \com\ui\set\bootstrap\table {
         // check if we have the prefix
         $table_prefix = substr($field, 0, 3);
         if (!\com\db\lib\config::has_prefix($table_prefix)) {
-            return \com\error::create("Table prefix not found: {$table_prefix}");
+            return \LiquidedgeApp\Octoapp\app\app\error\error::create("Table prefix not found: {$table_prefix}");
         }
 
         // get table field lookup
@@ -940,7 +940,7 @@ class table extends \com\ui\set\bootstrap\table {
 			// check if we have the prefix
 			$table_prefix = substr($field, 0, 3);
 			if (!\com\db\lib\config::has_prefix($table_prefix)) {
-				return \com\error::create("Table prefix not found: {$table_prefix}");
+				return \LiquidedgeApp\Octoapp\app\app\error\error::create("Table prefix not found: {$table_prefix}");
 			}
 
 			// get table field lookup
@@ -1021,11 +1021,11 @@ class table extends \com\ui\set\bootstrap\table {
 	protected function build_url($url = false, $action = false) {
 		// build url with components
 		if (!$url) {
-			if (!$this->key) \com\error::create("No key specified");
+			if (!$this->key) \LiquidedgeApp\Octoapp\app\app\error\error::create("No key specified");
 			$url = $this->build_controller(false, $action, "%$this->key%");
 		}
 		elseif (!preg_match("/^(index\\.php)|\\?/i", $url)) {
-			if (!$this->key) \com\error::create("No key specified");
+			if (!$this->key) \LiquidedgeApp\Octoapp\app\app\error\error::create("No key specified");
 			$url = $this->build_controller(false, $url, "%$this->key%");
 		}
 
@@ -1804,7 +1804,7 @@ class table extends \com\ui\set\bootstrap\table {
 				$options = [];
 
 				// build action icons specified with the add_action function
-				$last_index = \LiquidedgeApp\Octoapp\app\app\ui\arr::get_last_index($this->action_arr);
+				$last_index = \LiquidedgeApp\Octoapp\app\app\arr\arr::get_last_index($this->action_arr);
 				foreach ($this->action_arr as $action_index => $action_item) {
 					// determine if action is visible
 					$filter_check = true;
@@ -2427,9 +2427,9 @@ class table extends \com\ui\set\bootstrap\table {
 
 				// formatting
 				switch ($field_item["format"]) {
-					case DB_DATE : $value = \com\date::strtodate($value); break;
-					case DB_DATETIME : $value = \com\date::strtodatetime($value); break;
-					case DB_YEARMONTH : $value = \com\date::strtodate($value, "Y-m"); break;
+					case DB_DATE : $value = \LiquidedgeApp\Octoapp\app\app\date\date::strtodate($value); break;
+					case DB_DATETIME : $value = \LiquidedgeApp\Octoapp\app\app\date\date::strtodatetime($value); break;
+					case DB_YEARMONTH : $value = \LiquidedgeApp\Octoapp\app\app\date\date::strtodate($value, "Y-m"); break;
 					case DB_BOOL : $value = ($value ? "Yes" : "No"); break;
 				}
 

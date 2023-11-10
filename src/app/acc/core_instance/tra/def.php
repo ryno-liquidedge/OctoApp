@@ -50,7 +50,7 @@ trait def{
 			$this->apply_ini_options(\core::$folders->get_app()."/config/config.ini");
 		}
 
-		$this->copyright = '© Copyright '.$this->company.' '.\com\date::strtodate("now", "Y").'.<br>All rights reserved.<br>Website Powered by<svg id="liquidlogo" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="23" height="25" viewBox="0 0 66 89.92">
+		$this->copyright = '© Copyright '.$this->company.' '.\LiquidedgeApp\Octoapp\app\app\date\date::strtodate("now", "Y").'.<br>All rights reserved.<br>Website Powered by<svg id="liquidlogo" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="23" height="25" viewBox="0 0 66 89.92">
           <title>Liquid Edge Solutions</title>
           <rect width="66" height="89.92" style="fill: none;"></rect>
           <g>
@@ -116,7 +116,7 @@ trait def{
                 'self',
                 "forms.office.com",
                 "www.google.com",
-                "temp1.propertyagents.co.za",
+                "cdnjs.cloudflare.com",
                 "www.youtube.com",
             ],
             "default-src" => [
@@ -129,7 +129,7 @@ trait def{
                 "self:",
                 "maxcdn.bootstrapcdn.com",
                 "cdn.jsdelivr.net",
-                "temp1.propertyagents.co.za",
+                "cdnjs.cloudflare.com",
                 "www.youtube.com",
             ],
             "script-src" => [
@@ -142,7 +142,7 @@ trait def{
                 "www.google.com",
                 "www.gstatic.com",
                 "cdn.jsdelivr.net",
-                "temp1.propertyagents.co.za",
+                "cdnjs.cloudflare.com",
                 "www.youtube.com",
             ],
             "style-src" => [
@@ -151,12 +151,12 @@ trait def{
                 "fonts.googleapis.com",
                 "maxcdn.bootstrapcdn.com",
                 "cdn.jsdelivr.net",
-                "temp1.propertyagents.co.za",
+                "cdnjs.cloudflare.com",
                 "www.youtube.com",
             ],
             "img-src" => [
                 "cdnjs.cloudflare.com",
-                "temp1.propertyagents.co.za",
+                "cdnjs.cloudflare.com",
                 "www.youtube.com",
                 "blob:",
                 "self:",
@@ -203,30 +203,13 @@ define("PEP_TYPE_ARRAY"   				, [
 
 
 define("TYPE_GENERAL"   				        , 1);
-define("TYPE_COMMERCIAL_TO_LET"   				, 2);
-define("TYPE_COMMERCIAL_FOR_SALE"   		    , 3);
-define("TYPE_RESIDENTIAL_TO_LET"   				, 4);
-define("TYPE_RESIDENTIAL_FOR_SALE"   		    , 5);
-define("TYPE_HOLIDAY_LETTING"   				, 6);
-define("TYPE_STUDENT_LETTING"   				, 7);
-define("TYPE_DEVELOPMENT"   				    , 8);
-define("TYPE_STUDENT_BUILDING"   				, 9);
 define("LISTING_TYPE_ARRAY"   				, [
-    TYPE_COMMERCIAL_TO_LET 		=> "Commercial To Let",
-    TYPE_COMMERCIAL_FOR_SALE 	=> "Commercial For Sale",
-    TYPE_RESIDENTIAL_TO_LET 	=> "Residential To Let",
-    TYPE_RESIDENTIAL_FOR_SALE 	=> "Residential For Sale",
-    TYPE_HOLIDAY_LETTING 		=> "Holiday Letting",
-    TYPE_STUDENT_LETTING 		=> "Student Letting",
-    TYPE_DEVELOPMENT 			=> "Development",
-    TYPE_STUDENT_BUILDING 		=> "Student Building",
+    TYPE_GENERAL 				=> "General",
 ]);
-
 
 define("SLI_TYPE_SLIDER"   				        , 0);
 define("SLI_TYPE_VALUED_CLIENTS"   				, 1);
 define("SLI_TYPE_AFFILIATES"   					, 2);
-
 define("SLIDER_TYPE_ARRAY"   				, [
     SLI_TYPE_SLIDER 			=> "Slider",
     SLI_TYPE_VALUED_CLIENTS 	=> "Valued Clients",

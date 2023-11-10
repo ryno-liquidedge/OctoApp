@@ -44,7 +44,7 @@ class iproperty extends \LiquidedgeApp\Octoapp\app\app\ui\intf\element {
 		], $options);
 
 		$this->dbentry = $options["dbentry"];
-		$this->solid = \LiquidedgeApp\Octoapp\app\app\ui\solid::get_instance($options["key"]);
+		$this->solid = \LiquidedgeApp\Octoapp\app\app\solid\solid::get_instance($options["key"]);
 
 		if($options["value"] === false) $options["value"] = $this->dbentry->get_prop($options["key"]);
 
@@ -141,7 +141,7 @@ class iproperty extends \LiquidedgeApp\Octoapp\app\app\ui\intf\element {
 
 			// unknown
   			default :
-				\com\error::create("Unsupported DB_x ( {$this->solid->get_data_type()} )");
+				\LiquidedgeApp\Octoapp\app\app\error\error::create("Unsupported DB_x ( {$this->solid->get_data_type()} )");
 				break;
 		}
 	}

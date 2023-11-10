@@ -257,7 +257,7 @@ class page_meta extends \LiquidedgeApp\Octoapp\app\app\intf\standard {
 		if($options["resource"] && $options["action"]){
 			$namespace = "\\action\\".str_replace(".", "\\", $options["action"])."\\{$options["resource"]}";
 			if (method_exists($namespace,"get_page_meta") && is_callable([$namespace, "get_page_meta"])){
-				$meta_arr = \LiquidedgeApp\Octoapp\app\app\ui\arr::splat(call_user_func([$namespace, "get_page_meta"]));
+				$meta_arr = \LiquidedgeApp\Octoapp\app\app\arr\arr::splat(call_user_func([$namespace, "get_page_meta"]));
 			}
 		}
 

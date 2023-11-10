@@ -57,7 +57,7 @@ class select extends \com\db\sql\select {
         if(array_key_exists("sql_where", $options)) return true;
         if(array_key_exists("and_where", $options)) return true;
         if(array_key_exists("where", $options)) return true;
-        if(\com\arr::has_signature_items(".", $options)) return true;
+        if(\LiquidedgeApp\Octoapp\app\app\arr\arr::has_signature_items(".", $options)) return true;
 
 		return false;
     }
@@ -66,7 +66,7 @@ class select extends \com\db\sql\select {
 
 	    $fn_extract = function($key, $fn)use($options){
 	        if(isset($options[$key]) && $options[$key]){
-                $options[$key] = \com\arr::splat($options[$key]);
+                $options[$key] = \LiquidedgeApp\Octoapp\app\app\arr\arr::splat($options[$key]);
                 foreach ($options[$key] as $from)
                     if($from) $this->{$fn}($from);
             }
@@ -201,7 +201,7 @@ class select extends \com\db\sql\select {
             $sql->from("person_role");
             $sql->from("LEFT JOIN acl_role ON (pel_ref_acl_role = acl_id)");
             $sql->and_where("pel_ref_person = per_id");
-            $sql->and_where(\core::db()->getsql_in(\com\arr::splat($role), "acl_code"));
+            $sql->and_where(\core::db()->getsql_in(\LiquidedgeApp\Octoapp\app\app\arr\arr::splat($role), "acl_code"));
 
             return ($not ? "NOT " : "")."EXISTS ({$sql->build()})";
         });

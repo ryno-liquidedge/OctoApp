@@ -159,7 +159,7 @@ class map extends \com\ui\intf\map {
 
 		// required
 		if (!$options["@id"]) {
-			return \com\error::create("ID required for map element");
+			return \LiquidedgeApp\Octoapp\app\app\error\error::create("ID required for map element");
 		}
 
 		// init

@@ -182,7 +182,7 @@ class button extends \com\ui\intf\element {
         $use_default = true;
         foreach (\LiquidedgeApp\Octoapp\app\app\ui\ui::$bootstrap_color_arr as $color){
 
-            if(\LiquidedgeApp\Octoapp\app\app\ui\arr::arr_contains_signature_item(".btn-{$color}", $options) || \LiquidedgeApp\Octoapp\app\app\ui\arr::arr_contains_signature_item(".btn-outline-{$color}", $options)) {
+            if(\LiquidedgeApp\Octoapp\app\app\arr\arr::arr_contains_signature_item(".btn-{$color}", $options) || \LiquidedgeApp\Octoapp\app\app\arr\arr::arr_contains_signature_item(".btn-outline-{$color}", $options)) {
                 $use_default = false;
                 break;
             }

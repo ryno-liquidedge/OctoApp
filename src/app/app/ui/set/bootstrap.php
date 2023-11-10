@@ -90,10 +90,10 @@ class bootstrap extends \com\ui\set\bootstrap {
 			"{$this->dir_app_app_ui_inc}/js/core/app.ui.bootstrap.ui.js",
 
             //highlighter
-			"{{$this->dir_app_app_ui_inc}/js/highlighter.js",
+			"{$this->dir_app_app_ui_inc}/js/highlighter.js",
 
 			// bootstrap-datetimepicker & calendar
-			"{{$this->dir_app_app_ui_inc}/js/moment.js",
+			"{$this->dir_app_app_ui_inc}/js/moment.js",
 			"{$this->dir_app_app_inc}/datetimepicker/inc/js/tempusdominus-bootstrap-4.js",
 			"{$this->dir_app_app_inc}/datetimepicker/inc/js/tempusdominus-bootstrap-4-append.js",
 
@@ -110,12 +110,12 @@ class bootstrap extends \com\ui\set\bootstrap {
 			"{$this->dir_app_app_inc}/summernote/summernote-lite.js",
 
 			//parallax
-			"{{$this->dir_app_app_ui_inc}/js/aos.js",
-			"{{$this->dir_app_app_ui_inc}/js/bootstrap.parallax.js",
+			"{$this->dir_app_app_ui_inc}/js/aos.js",
+			"{$this->dir_app_app_ui_inc}/js/bootstrap.parallax.js",
 
 			//custom
-			"{{$this->dir_app_app_ui_inc}/js/bootstrap-multiselect.js",
-			"{{$this->dir_app_app_ui_inc}/js/system.js",
+			"{$this->dir_app_app_ui_inc}/js/bootstrap-multiselect.js",
+			"{$this->dir_app_app_ui_inc}/js/system.js",
 
 		];
 

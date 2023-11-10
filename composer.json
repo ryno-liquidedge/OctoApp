@@ -25,6 +25,8 @@
 
     "mailchimp/marketing": "3.0.80",
 
+    "magicalex/write-ini-file": "2.0.1",
+
     "matthiasmullie/scrapbook": "1.5.1",
     "league/flysystem": "3.19.0"
   },

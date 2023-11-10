@@ -70,7 +70,7 @@ abstract class standard extends \LiquidedgeApp\Octoapp\app\app\solid\property_se
             return $this->session->get($this->get_form_id(), $this->get_default());
         }
 
-	    $sql = \LiquidedgeApp\Octoapp\app\app\solid\db\sql\select::make();
+	    $sql = \LiquidedgeApp\Octoapp\app\app\db\sql\select::make();
 	    $sql->select("settings.*");
 	    $sql->from("settings");
 	    $sql->and_where("stt_key = ".dbvalue($this->get_key()));

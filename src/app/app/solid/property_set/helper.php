@@ -15,7 +15,7 @@ class helper extends \LiquidedgeApp\Octoapp\app\app\intf\standard {
 	//--------------------------------------------------------------------------------
 	public function __construct() {
 
-		self::$solid_class_arr = \app\solid\property_set\incl\library::$solid_arr;
+		self::$solid_class_arr = \LiquidedgeApp\Octoapp\app\app\captcha\solid\property_set\incl\library::$solid_arr;
 
 	}
 	//--------------------------------------------------------------------------------

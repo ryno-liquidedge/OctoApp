@@ -22,7 +22,7 @@ class itext_property extends \com\ui\intf\element {
 	public function build($options = []) {
 
 		$buffer = \LiquidedgeApp\Octoapp\app\app\ui\ui::make()->buffer();
-		$solid_class = \LiquidedgeApp\Octoapp\app\app\ui\solid::get_setting_instance($options["key"]);
+		$solid_class = \LiquidedgeApp\Octoapp\app\app\solid\solid::get_setting_instance($options["key"]);
 
         $options = array_merge([
             "label" => $solid_class->get_display_name(),

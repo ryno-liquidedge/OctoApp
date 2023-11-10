@@ -71,7 +71,7 @@ class datetimepicker extends \LiquidedgeApp\Octoapp\app\app\intf\standard {
 		$options["wrapper_id"] = "__{$id}wrapper";
 
 		// value
-  		$value = \com\date::strtodatetime($value, ($options["value_format"] ?: \core::$app->get_instance()->get_format_date()), "");
+  		$value = \LiquidedgeApp\Octoapp\app\app\date\date::strtodatetime($value, ($options["value_format"] ?: \core::$app->get_instance()->get_format_date()), "");
   		$JS_id = strtr($id, ["[" => "\\\\[", "]" => "\\\\]", "." => "\\\\."]);
 		$name_id = str_replace(["[", "]"], "_", $id);
 		$is_time_picker = $options["time_picker_auto_switch"];
@@ -96,8 +96,8 @@ class datetimepicker extends \LiquidedgeApp\Octoapp\app\app\intf\standard {
 		$js_options["*disabledHours"] = $fn_init_date_arr($options["disabled_hours"]);
 
 		$js_options["*format"] = $options["@data-js-format"];
-		$js_options["*minDate"] = $options["start_date"] ? \com\date::strtodatetime($options["start_date"], ($options["value_format"] ?: \core::$app->get_instance()->get_format_date()), "") : false;
-		$js_options["*maxDate"] = $options["end_date"] ? \com\date::strtodatetime($options["end_date"], ($options["value_format"] ?: \core::$app->get_instance()->get_format_date()), "") : false;
+		$js_options["*minDate"] = $options["start_date"] ? \LiquidedgeApp\Octoapp\app\app\date\date::strtodatetime($options["start_date"], ($options["value_format"] ?: \core::$app->get_instance()->get_format_date()), "") : false;
+		$js_options["*maxDate"] = $options["end_date"] ? \LiquidedgeApp\Octoapp\app\app\date\date::strtodatetime($options["end_date"], ($options["value_format"] ?: \core::$app->get_instance()->get_format_date()), "") : false;
 		$js_options["*todayHighlight"] = true;
 		$js_options["*sideBySide"] = false;
 		$js_options["*viewMode"] = $options["min_view"];

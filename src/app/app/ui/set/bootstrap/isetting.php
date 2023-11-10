@@ -38,7 +38,7 @@ class isetting extends iproperty {
 			"required" => false,
 		], $options);
 
-		$this->solid = \LiquidedgeApp\Octoapp\app\app\ui\solid::get_setting_instance($options["key"]);
+		$this->solid = \LiquidedgeApp\Octoapp\app\app\solid\solid::get_setting_instance($options["key"]);
 
 		if($options["value"] === false) $options["value"] = $this->solid->get_value(["html_decode" => false]);
 

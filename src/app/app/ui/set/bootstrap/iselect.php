@@ -62,7 +62,7 @@ class iselect extends \com\ui\intf\element {
 	//public static function iselect($id, $value_option_arr, $value = false, $label = false, $options = []) {
 
 		// options
-		$signature_options = \LiquidedgeApp\Octoapp\app\app\ui\arr::extract_signature_items(".", $options);
+		$signature_options = \LiquidedgeApp\Octoapp\app\app\arr\arr::extract_signature_items(".", $options);
 		$options = array_merge([
 			"id" => false,
 			"value" => false,

@@ -37,7 +37,7 @@ class form_label extends \com\ui\intf\element {
 		], $options);
 
 		// large screens
-		if (\com\ui::$is_xl) {
+		if (\LiquidedgeApp\Octoapp\app\app\ui\ui::$is_xl) {
 			$options[".col-xl-2"] = true;
 		}
 		$options[".d-flex"] = true;

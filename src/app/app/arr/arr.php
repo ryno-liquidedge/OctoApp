@@ -8,7 +8,7 @@ namespace LiquidedgeApp\Octoapp\app\app\arr;
  * @author Liquid Edge Solutions
  * @copyright Copyright Liquid Edge Solutions. All rights reserved.
  */
-class arr extends \com\core{
+class arr extends \com\arr{
 	//--------------------------------------------------------------------------------
     // static
     //--------------------------------------------------------------------------------

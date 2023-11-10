@@ -115,7 +115,7 @@ trait table {
     //--------------------------------------------------------------------------------
 	/**
 	 * @param $obj
-	 * @return \app\solid\property_set\intf\standard|mixed
+	 * @return \LiquidedgeApp\Octoapp\app\app\captcha\solid\property_set\intf\standard|mixed
 	 */
 	public function get_solid_class($obj) {
 		return \LiquidedgeApp\Octoapp\app\app\solid\solid::get_instance($obj->{$obj->get_prefix()."_key"});
@@ -324,7 +324,13 @@ trait table {
     //--------------------------------------------------------------------------------
     public function get_slug($obj, $options = []) {
 
-    	if(!property_exists($this, "slug")) return false;
+    	if(!property_exists($this, "slug")){
+    		$parts = [];
+			$parts[] = \LiquidedgeApp\Octoapp\app\app\str\str::str_to_seo($obj->name);
+			$parts[] = $obj->id;
+
+			return implode("_", $parts);
+		}
 
         return $obj->{$this->slug};
     }
@@ -343,10 +349,15 @@ trait table {
     //--------------------------------------------------------------------------------
     public function get_fromslug($options = []) {
 
-        if(!property_exists($this, "slug")) return false;
+		$slug = \LiquidedgeApp\Octoapp\app\app\http\http::get_slug();
 
-        $slug = \LiquidedgeApp\Octoapp\app\app\http\http::get_slug();
-
+        if(!property_exists($this, "slug")){
+			$slug_parts = explode("_", $slug);
+			$id = \LiquidedgeApp\Octoapp\app\app\data\data::parse_key(end($slug_parts));
+			if($id){
+				return \core::dbt($this->name)->get_fromdb($id);
+			}
+		}
         return \core::dbt($this->name)->find([
             ".{$this->slug}" => $slug
         ]);
