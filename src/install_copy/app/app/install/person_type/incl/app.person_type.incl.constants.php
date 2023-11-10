@@ -1,0 +1,20 @@
+<?php
+/**
+ * @package app\install\person_type\incl
+ * @author Ryno Van Zyl
+ * @copyright Copyright Liquid Edge Solutions. All rights reserved.
+ */
+define("PERSON_TYPE_INDIVIDUAL", "INDIVIDUAL");
+define("PERSON_TYPE_CLOSE_CORPORATION", "CLOSE_CORPORATION");
+define("PERSON_TYPE_COMPANY", "COMPANY");
+define("PERSON_TYPE_TRUST", "TRUST");
+define("PERSON_TYPE_SOLE_PROPRIETOR", "SOLE_PROPRIETOR");
+define("PERSON_TYPE_PARTNERSHIP", "PARTNERSHIP");
+define("PERSON_TYPE_NPO", "NPO");
+define("PERSON_TYPE_SCHOOL", "SCHOOL");
+define("PERSON_TYPE_ASSOCIATION", "ASSOCIATION");
+define("PERSON_TYPE_CHURCH", "CHURCH");
+define("PERSON_TYPE_ESTATE", "ESTATE");
+define("PERSON_TYPE_SECTIONAL_SCHEME", "SECTIONAL_SCHEME");
+define("PERSON_TYPE_GOVERNMENT_INSTITUTION", "GOVERNMENT_INSTITUTION");
+
