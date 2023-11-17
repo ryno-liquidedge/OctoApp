@@ -133,7 +133,7 @@ class settings extends \com\db\table {
     }
     //--------------------------------------------------------------------------------
     public static function is_cart_enabled() {
-        return db_settings::get_value(SETTING_ENABLE_CART);
+        return self::get_value(SETTING_ENABLE_CART);
     }
     //--------------------------------------------------------------------------------
     public static function save_setting($key, $value) {
@@ -169,7 +169,7 @@ class settings extends \com\db\table {
 
         message(false);
 
-        $add_id = \db_settings::get_value(SETTING_COMPANY_COMPANY_ADDRESS_REF, $options);
+        $add_id = self::get_value(SETTING_COMPANY_COMPANY_ADDRESS_REF, $options);
         $exists = \core::dbt("address")->exists("add_id = ".dbvalue($add_id));
         if(isnull($add_id) || !$add_id || !$exists){
             $address = \core::dbt("address")->get_fromdefault();
@@ -177,7 +177,7 @@ class settings extends \com\db\table {
 			$address->add_type = 1;
 			$add_id = $address->insert();
 
-			\db_settings::save_setting(SETTING_COMPANY_COMPANY_ADDRESS_REF, $add_id);
+			self::save_setting(SETTING_COMPANY_COMPANY_ADDRESS_REF, $add_id);
 
         }
 
@@ -202,7 +202,7 @@ class settings extends \com\db\table {
         $default = $options["default"];
         unset($options["default"]);
 
-        $fil_id = \db_settings::get_value($key, $options);
+        $fil_id = self::get_value($key, $options);
         if($fil_id && !isnull($fil_id)) return \core::dbt("file_item")->get_fromdb($fil_id);
 
         return $default;
@@ -220,7 +220,7 @@ class settings extends \com\db\table {
 		    "default" => \core::$folders->get_root_files()."/standard/favicon.png",
 		], $options);
 
-    	return \app\http::get_stream_url(\db_settings::get_file_item(SETTING_COMPANY_COMPANY_FAVICON_REF, $options));
+    	return \app\http::get_stream_url(self::get_file_item(SETTING_COMPANY_COMPANY_FAVICON_REF, $options));
     }
     //--------------------------------------------------------------------------------
 
@@ -230,7 +230,7 @@ class settings extends \com\db\table {
      */
     public static function get_logo($options = []) {
 
-        return \db_settings::get_company_logo_light($options);
+        return self::get_company_logo_light($options);
     }
     //--------------------------------------------------------------------------------
 
@@ -240,7 +240,7 @@ class settings extends \com\db\table {
      */
     public static function get_company_logo_light($options = []) {
 
-        $file_item = db_settings::get_file_item(SETTING_COMPANY_COMPANY_LOGO_LIGHT_REF);
+        $file_item = self::get_file_item(SETTING_COMPANY_COMPANY_LOGO_LIGHT_REF);
         if($file_item) return $file_item;
 
         return \core::$folders->get_root_files()."/standard/placeholder-maxarea_400x150.jpg";
@@ -253,7 +253,7 @@ class settings extends \com\db\table {
      */
     public static function get_company_logo_dark($options = []) {
 
-        $file_item = db_settings::get_file_item(SETTING_COMPANY_COMPANY_LOGO_DARK_REF);
+        $file_item = self::get_file_item(SETTING_COMPANY_COMPANY_LOGO_DARK_REF);
         if($file_item) return $file_item;
 
         return \core::$folders->get_root_files()."/standard/placeholder-maxarea_400x150.jpg";

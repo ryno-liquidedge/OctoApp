@@ -28,7 +28,7 @@ class advertisement extends \com\db\table {
         "adv_id"		        => array ("database id"		, "null"    , DB_INT),
         "adv_title"		        => array ("title"			, ""        , DB_STRING),
         "adv_description"		=> array ("description"		, ""        , DB_TEXT),
-        "adv_url"		    	=> array ("URL"			, ""        , DB_STRING),
+        "adv_url"		    	=> array ("URL"				, ""        , DB_STRING),
         "adv_is_active" 		=> array("is published"		, 0		    , DB_BOOL),
         "adv_status"            => array ("status"	        , 0	        , DB_ENUM),
         "adv_location"          => array ("ads location"	, 0	        , DB_ENUM),

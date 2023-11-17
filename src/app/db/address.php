@@ -118,6 +118,19 @@ class address extends \com\core\db\address {
         if($address->add_type == 0) $address->add_type = 1;
         if($address->add_nomination == 0) $address->add_nomination = 1;
 
+        $address->save_address_reference("country");
+        if($address->country) $address->save_address_reference("province",
+            [".prv_ref_country" => $address->country->id],
+        );
+        if($address->country && $address->province) $address->save_address_reference("town",
+            [".tow_ref_country" => $address->country->id],
+            [".tow_ref_province" => $address->province->id],
+        );
+
+	    if($address->town) $address->save_address_reference("suburb",
+            [".sub_ref_town" => $address->town->id],
+        );
+
 		// name
 		$address->add_name = "{$address->nomination} ({$address->type})";
 
@@ -141,6 +154,58 @@ class address extends \com\core\db\address {
 		if($parts) $address->add_street = implode(", ", $parts);
 
 	}
+	//--------------------------------------------------------------------------------
+    public function save_address_reference($address, $table, $find_arr = [], $options = []) {
+
+	    $options = array_merge([
+	        "overwrite_data_arr" => []
+	    ], $options);
+
+	    $dbt = \core::dbt($table);
+	    $find_arr = \com\arr::splat($find_arr);
+
+	    if(property_exists($address, "__{$table}"))
+            $find_arr[".{$dbt->get_prefix()}_name"] = $address->{"__{$table}"};
+
+	    if(!isset($find_arr[".{$dbt->get_prefix()}_name"]) || !$find_arr[".{$dbt->get_prefix()}_name"]) return false;
+
+	    $sql = \app\db\sql\select::make();
+	    $sql->select("{$dbt->name}.*");
+	    $sql->from($dbt->name);
+	    $sql->extract_options($find_arr);
+	    $sql->extract_options($options);
+	    $obj = $dbt->get_fromsql($sql->build());
+
+	    if(!$obj){
+
+	        $obj = \core::dbt($table)->get_fromdefault();
+
+	        // extract the fields from options
+            $field_arr = \com\arr::extract_signature_items(".", $find_arr);
+            foreach ($field_arr as $field_index => $field_item) {
+                $obj->{$field_index} = $field_item;
+            }
+
+            // extract the fields from options
+            $field_arr = \com\arr::extract_signature_items(".", $options);
+            foreach ($field_arr as $field_index => $field_item) {
+                $obj->{$field_index} = $field_item;
+            }
+
+	        foreach ($options["overwrite_data_arr"] as $field => $value){
+                $obj->{$field} = $value;
+            }
+
+	        if($obj->is_empty("{$dbt->get_prefix()}_name")) return false;
+
+	        $obj->save();
+        }
+
+        $address->{"add_ref_{$table}"} = $obj->id;
+        $address->{$table} = $obj;
+
+        return $obj;
+    }
 	//--------------------------------------------------------------------------------
 
 	/**

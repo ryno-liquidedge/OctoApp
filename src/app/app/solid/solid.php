@@ -62,6 +62,13 @@ class solid extends \LiquidedgeApp\Octoapp\app\app\intf\standard {
         return $solid->get_data_arr();
     }
     //--------------------------------------------------------------------------------
+    public static function get_generated_data_entry($key) {
+    	$constant_str = self::get_constant_string_name($key);
+    	$solid_class_arr = \app\solid\property_set\incl\library::$solid_arr;
+
+    	return isset($solid_class_arr[$constant_str]) ? $solid_class_arr[$constant_str] : [];
+	}
+    //--------------------------------------------------------------------------------
     public static function request($key, $options = []){
 
         $constant_str = self::get_constant_string_name($key);
