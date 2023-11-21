@@ -123,7 +123,7 @@ class ui extends \com\ui {
 
 	/**
 	 * @param array $options
-	 * @return mixed
+	 * @return mixed | \LiquidedgeApp\Octoapp\app\app\ui\set\bootstrap\offcanvas
 	 */
 	public function offcanvas($options = []) {
 		return \LiquidedgeApp\Octoapp\app\app\ui\set\bootstrap\offcanvas::make($options);

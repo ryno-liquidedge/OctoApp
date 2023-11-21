@@ -120,15 +120,18 @@ class button extends \com\ui\intf\element {
 			$options["selected"] = false;
   		}
 
+  		$event_class = "";
+  		if($onclick instanceof \com\ui\intf\element) $event_class = $onclick->get_class();
+
 		// onclick
-		if ($onclick instanceof \com\ui\intf\dropdown) {
+		if ($event_class == "dropdown") {
 			$options["@data-bs-toggle"] = "dropdown";
 			if (!$options["icon_right"]) $options["caret"] = true;
 			$options["@aria-haspopup"] = "true";
 			$options["@aria-expanded"] = "false";
 			if (!isset($options["@data-boundary"])) $options["@data-boundary"] = "viewport";
 		}
-  		elseif ($onclick instanceof \app\ui\set\bootstrap\offcanvas) {
+  		elseif ($event_class == "offcanvas") {
 
 			$options["@data-bs-toggle"] = "offcanvas";
 			$options["@href"] = "#{$onclick->get_id()}";
@@ -136,7 +139,7 @@ class button extends \com\ui\intf\element {
 			$options["@aria-controls"] = $onclick->get_id();
 			$options["@data-bs-target"] = "#{$onclick->get_id()}";
 
-		}elseif ($onclick instanceof \app\ui\set\bootstrap\modal) {
+		}elseif ($event_class == "modal") {
 			$options[".btn-modal"] = true;
 			$options["@data-bs-toggle"] = "modal";
 			$options["@data-bs-target"] = "#{$onclick->get_id()}";
@@ -257,13 +260,13 @@ class button extends \com\ui\intf\element {
 		}
 
 		// dropdown
-		if ($onclick instanceof \com\ui\intf\dropdown) {
+		if ($event_class == "dropdown") {
 			$onclick->set_trigger($html->get_clean());
 			return $onclick->get();
-		}else if($onclick instanceof \app\ui\set\bootstrap\modal){
+		}else if($event_class == "modal"){
 			$onclick->set_trigger($html->get_clean());
 			return $onclick->build();
-		}else if ($onclick instanceof \app\ui\set\bootstrap\offcanvas) {
+		}else if ($event_class == "offcanvas") {
 			$onclick->set_trigger($html->get_clean());
 			return $onclick->build();
 		}

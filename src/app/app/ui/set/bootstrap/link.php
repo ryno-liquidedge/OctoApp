@@ -51,16 +51,18 @@ class link extends \com\ui\intf\element {
 
 		if($options["icon_right"] && is_string($options["icon_right"])) $options["icon"] = $options["icon_right"];
 
+		$event_class = "";
+  		if($href instanceof \com\ui\intf\element) $event_class = $href->get_class();
 
 		// onclick / dropdown
-		if ($href instanceof \com\ui\intf\dropdown) {
+		if ($event_class == "dropdown") {
 			$options["@data-bs-toggle"] = "dropdown";
 			$options["@href"] = "#";
 			$options["@aria-haspopup"] = "true";
 			$options["@aria-expanded"] = "false";
 			if (!isset($options["@data-boundary"])) $options["@data-boundary"] = "viewport";
 		}
-		else if ($href instanceof \app\ui\set\bootstrap\offcanvas) {
+		else if ($event_class == "offcanvas") {
 
 			$options["@data-bs-toggle"] = "offcanvas";
 			$options["@href"] = "#{$href->get_id()}";
@@ -92,13 +94,13 @@ class link extends \com\ui\intf\element {
 		$html->_a();
 
 		// dropdown
-		if ($href instanceof \com\ui\intf\dropdown) {
+		if ($event_class == "dropdown") {
 			$href->add_html(function($html) {
 				$html->button(".d-none");
 			});
 			$href->set_trigger($html->get_clean());
 			return $href->get(["#display" => "inline-block"]);
-		}else if ($href instanceof \app\ui\set\bootstrap\offcanvas) {
+		}else if ($event_class == "offcanvas") {
 
 			$href->set_trigger($html->get_clean());
 			return $href->build();
