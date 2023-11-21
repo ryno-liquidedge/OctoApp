@@ -32,7 +32,7 @@ class vlist implements \com\router\int\action {
 
 
 		// fields
-		$list->add_field("Name", "name", ["#width" => $this->folder == "settings" ? "30%" : "80%"]);
+		$list->add_field("Name", "name");
 		if($this->folder == "settings"){
 			$list->add_field("Value", "id", ["function" => function($content, $item_index, $field_index, $list){
 				$item = $list->item_arr[$item_index];
@@ -49,18 +49,24 @@ class vlist implements \com\router\int\action {
 		$list->add_field("Data Type", "id", ["function" => function($content, $item_index, $field_index, $list){
 			$item = $list->item_arr[$item_index];
 			return $item["instance"]->get_data_type_str();
-		}, "#width" => "20%"]);
-
-		$list->add_field("Options", "id", ["function" => function($content, $item_index, $field_index, $list){
-			$item = $list->item_arr[$item_index];
-			$toolbar = \app\ui::make()->toolbar([".flex-nowrap text-nowrap" => true]);
-			$toolbar->add_button("Copy Filename", "core.util.copy_text('{$item['filename']}')");
-			if($this->folder == "settings") $toolbar->add_button("Edit", \app\ui::make()->js_popup("?c=developer.solid_property_library.popup/vedit&key={$item["key"]}", [
-				"*width" => "modal-xl",
-				"*title" => "Edit Setting",
-			]));
-			return $toolbar->build();
 		}]);
+
+		$list->add_field("", "id", ["function" => function($content, $item_index, $field_index, $list){
+			$item = $list->item_arr[$item_index];
+
+			$dropdown = \app\ui::make()->dropdown();
+			$dropdown->add_button("Copy Filename", "core.util.copy_text('{$item['filename']}')", [".text-dark" => true]);
+			$dropdown->add_button("Copy Code", "core.util.copy_text('{$item['code']}')", [".text-dark" => true]);
+			$dropdown->add_button("Copy Key", "core.util.copy_text('{$item['key']}')", [".text-dark" => true]);
+			if($this->folder == "settings"){
+				$dropdown->add_button("Edit", \app\ui::make()->js_popup("?c=developer.solid_property_library.popup/vedit&key={$item["key"]}", [
+					"*width" => "modal-xl",
+					"*title" => "Edit Setting",
+				]), [".text-dark" => true]);
+
+			}
+			return \app\ui::make()->button(false, $dropdown, ["icon" => "fa-bars", ".btn-outline-primary btn-sm" => true]);
+		}, "#width" => "1%"]);
 
 
 		$html = \com\ui::make()->html();

@@ -109,7 +109,7 @@ class button extends \com\ui\intf\element {
 
 		// disabled message
 		if ($options["msgdisabled"] && $options["msgdisabled"] !== true) {
-			$options["msgdisabled"] = \LiquidedgeApp\Octoapp\app\app\arr\arr::splat($options["msgdisabled"]);
+			$options["msgdisabled"] = \com\arr::splat($options["msgdisabled"]);
 			$options["@disabled"] = true;
 			$options["tooltip"] = $options["msgdisabled"];
 		}
@@ -128,7 +128,15 @@ class button extends \com\ui\intf\element {
 			$options["@aria-expanded"] = "false";
 			if (!isset($options["@data-boundary"])) $options["@data-boundary"] = "viewport";
 		}
-  		elseif ($onclick instanceof \LiquidedgeApp\Octoapp\app\app\ui\set\bootstrap\modal) {
+  		elseif ($onclick instanceof \app\ui\set\bootstrap\offcanvas) {
+
+			$options["@data-bs-toggle"] = "offcanvas";
+			$options["@href"] = "#{$onclick->get_id()}";
+			$options["@role"] = "button";
+			$options["@aria-controls"] = $onclick->get_id();
+			$options["@data-bs-target"] = "#{$onclick->get_id()}";
+
+		}elseif ($onclick instanceof \app\ui\set\bootstrap\modal) {
 			$options[".btn-modal"] = true;
 			$options["@data-bs-toggle"] = "modal";
 			$options["@data-bs-target"] = "#{$onclick->get_id()}";
@@ -154,11 +162,11 @@ class button extends \com\ui\intf\element {
  			if (!$options["@id"]) $options["@id"] = \com\session::$current->session_uid;
 			$options["@title"] = $options["tooltip"];
 
-			\LiquidedgeApp\Octoapp\app\app\ui\ui::make()->tooltip();
+			\com\ui::make()->tooltip();
  		}
 
 		// html
-		$html = \LiquidedgeApp\Octoapp\app\app\ui\ui::make()->buffer();
+		$html = \com\ui::make()->buffer();
 
 		// default icons
 		if (!$options["icon"]) {
@@ -180,9 +188,9 @@ class button extends \com\ui\intf\element {
 
 		// selected
         $use_default = true;
-        foreach (\LiquidedgeApp\Octoapp\app\app\ui\ui::$bootstrap_color_arr as $color){
+        foreach (\app\ui::$bootstrap_color_arr as $color){
 
-            if(\LiquidedgeApp\Octoapp\app\app\arr\arr::arr_contains_signature_item(".btn-{$color}", $options) || \LiquidedgeApp\Octoapp\app\app\arr\arr::arr_contains_signature_item(".btn-outline-{$color}", $options)) {
+            if(\app\arr::arr_contains_signature_item(".btn-{$color}", $options) || \app\arr::arr_contains_signature_item(".btn-outline-{$color}", $options)) {
                 $use_default = false;
                 break;
             }
@@ -223,7 +231,7 @@ class button extends \com\ui\intf\element {
 			// badge
 			if ($options["badge"] !== false) {
 				if (!($options["badge"] instanceof \com\ui\intf\element)) {
-					$options["badge"] = \LiquidedgeApp\Octoapp\app\app\ui\ui::make()->badge($options["badge"], "dark", [".ms-2" => true]);
+					$options["badge"] = \com\ui::make()->badge($options["badge"], "dark", [".ms-2" => true]);
 				}
 				$html->add($options["badge"]);
 			}
@@ -252,7 +260,10 @@ class button extends \com\ui\intf\element {
 		if ($onclick instanceof \com\ui\intf\dropdown) {
 			$onclick->set_trigger($html->get_clean());
 			return $onclick->get();
-		}else if($onclick instanceof \LiquidedgeApp\Octoapp\app\app\ui\set\bootstrap\modal){
+		}else if($onclick instanceof \app\ui\set\bootstrap\modal){
+			$onclick->set_trigger($html->get_clean());
+			return $onclick->build();
+		}else if ($onclick instanceof \app\ui\set\bootstrap\offcanvas) {
 			$onclick->set_trigger($html->get_clean());
 			return $onclick->build();
 		}

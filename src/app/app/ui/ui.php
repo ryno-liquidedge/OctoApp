@@ -120,6 +120,15 @@ class ui extends \com\ui {
 	    return \LiquidedgeApp\Octoapp\app\app\ui\set\bootstrap\sup::make()->build($options);
 	}
 	//--------------------------------------------------------------------------------
+
+	/**
+	 * @param array $options
+	 * @return mixed
+	 */
+	public function offcanvas($options = []) {
+		return \LiquidedgeApp\Octoapp\app\app\ui\set\bootstrap\offcanvas::make($options);
+	}
+	//--------------------------------------------------------------------------------
 	public function iselect_multi($id, $value_option_arr, $value = false, $label = false, $options = []) {
 		// options
   		$options["id"] = $id;

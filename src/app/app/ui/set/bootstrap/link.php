@@ -51,6 +51,7 @@ class link extends \com\ui\intf\element {
 
 		if($options["icon_right"] && is_string($options["icon_right"])) $options["icon"] = $options["icon_right"];
 
+
 		// onclick / dropdown
 		if ($href instanceof \com\ui\intf\dropdown) {
 			$options["@data-bs-toggle"] = "dropdown";
@@ -59,13 +60,22 @@ class link extends \com\ui\intf\element {
 			$options["@aria-expanded"] = "false";
 			if (!isset($options["@data-boundary"])) $options["@data-boundary"] = "viewport";
 		}
+		else if ($href instanceof \app\ui\set\bootstrap\offcanvas) {
+
+			$options["@data-bs-toggle"] = "offcanvas";
+			$options["@href"] = "#{$href->get_id()}";
+			$options["@role"] = "button";
+			$options["@aria-controls"] = $href->get_id();
+
+		}
 		else {
 			if (preg_match("/^javascript:/i", $href)) $options["!click"] = preg_replace("/^javascript:/i", "", $href);
 			else $options["@href"] = $href;
 		}
 
+
 		// html
-		$html = \LiquidedgeApp\Octoapp\app\app\ui\ui::make()->buffer();
+		$html = \com\ui::make()->buffer();
 		$html->a_($options);
 			if ($options["icon"] && !$options["icon_right"]) $html->xicon($options["icon"], $options["/icon"]);
 			$html->content($label, ["html" => $options["html"]]);
@@ -87,7 +97,11 @@ class link extends \com\ui\intf\element {
 				$html->button(".d-none");
 			});
 			$href->set_trigger($html->get_clean());
-			return $href->get(["#display" => "inline"]);
+			return $href->get(["#display" => "inline-block"]);
+		}else if ($href instanceof \app\ui\set\bootstrap\offcanvas) {
+
+			$href->set_trigger($html->get_clean());
+			return $href->build();
 		}
 
 		// done

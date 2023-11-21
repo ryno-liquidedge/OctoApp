@@ -34,6 +34,7 @@ class vmanage implements \com\router\int\action {
 					$fn_add_menu("Person Type", "?c=developer.person_type/vlist", "fa-user-astronaut");
 					$fn_add_menu("System Users", "?c=developer.system_user/vtab", "fa-users");
 					$fn_add_menu("Crons", "?c=developer.cron_task/vlist", "fa-laptop-code");
+					$fn_add_menu("Solid Property Library", "?c=developer.solid_property_library/vtab", "fa-book");
 					$fn_add_menu("System Email", "?c=developer.system_email/vsend", "fa-envelope");
 					$fn_add_menu("Buffer Builder", "?c=developer.buffer_builder/vedit", "fa-code");
 					$fn_add_menu("PHP Info", "?c=developer.php/vinfo", "fa-bars");
