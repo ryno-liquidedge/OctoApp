@@ -1,6 +1,6 @@
 #-------------------------
 # Composer
 #-------------------------
-vendor/
+/vendor/
 .idea/OctoApp.iml
 .idea/php.xml

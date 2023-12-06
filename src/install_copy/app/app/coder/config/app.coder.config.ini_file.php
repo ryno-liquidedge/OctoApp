@@ -3,7 +3,7 @@
 namespace app\coder\config;
 
 /**
- * @package app
+ * @package app\coder\config
  * @author Ryno Van Zyl
  * @copyright Copyright Liquid Edge Solutions. All rights reserved.
  */
