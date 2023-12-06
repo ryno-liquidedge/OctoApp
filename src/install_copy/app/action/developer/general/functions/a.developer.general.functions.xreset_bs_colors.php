@@ -34,7 +34,7 @@ class xreset_bs_colors implements \com\router\int\action {
 		$reset_color(SETTING_BS_DARK);
 
 		//attempt so override bootstrap colors
-		\app\helper\scss\variables_compiler::make()->run();
+		\LiquidedgeApp\Octoapp\app\app\coder\scss\variables_compiler::make()->run();
 
 
         message(true, "Changes Saved");
