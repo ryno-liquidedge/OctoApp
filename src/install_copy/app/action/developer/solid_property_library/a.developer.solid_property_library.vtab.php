@@ -29,10 +29,19 @@ class vtab implements \com\router\int\action {
         // tabs
         $tab = \app\ui::make()->tab(["id" => "solid_property_tab"]);
 
-        $solid_classes_folder_arr = glob(\core::$folders->get_app_app()."/solid/property_set/solid_classes/*");
-		foreach ($solid_classes_folder_arr as $solid_classes_folder){
-			$label = \com\str::propercase_name(str_replace("_", " ", basename($solid_classes_folder)));
-        	$tab->add_tab($label, "?c=developer.solid_property_library/vlist&folder=".basename($solid_classes_folder));
+
+        $solid_class_arr = \app\solid\property_set\incl\library::$solid_arr;
+        $folder_arr = [];
+        array_filter($solid_class_arr, function($item)use(&$folder_arr){
+        	$classname_parts = explode("\\", $item["classname"]);
+        	$basename = $classname_parts[sizeof($classname_parts)-2];
+        	$label = \com\str::propercase_name(str_replace("_", " ", $basename));
+        	$folder_arr[$basename] = $label;
+		});
+
+
+		foreach ($folder_arr as $folder => $label){
+        	$tab->add_tab($label, "?c=developer.solid_property_library/vlist&folder={$folder}");
 		}
 
 		$html->display($tab);
