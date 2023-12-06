@@ -1,0 +1,68 @@
+
+//import bootstrap
+@import "bootstrap/functions";
+@import "bootstrap/variables";
+
+.datetimepicker{
+    & .month{
+
+    }
+    & .day{
+        padding:5px;
+    }
+    & .day, & .month, & .year{
+        &.active{
+            background-image:none;
+            background-color: $primary !important;
+            &:hover{
+                background-image:none;
+                background-color: $secondary !important;
+            }
+        }
+        &.today{
+            background-image:none;
+            background-color: $indigo-200;
+            &:hover{
+                background-image:none;
+                background-color: $indigo-400 !important;
+                &.active{
+                    background-color: $secondary !important;
+                }
+            }
+            &.disabled{
+                background-image: none !important;
+                background-color:$gray-200 !important;
+                color: $gray-600 !important;
+                &:hover{
+                    background-color: #FFF !important;
+                    color: $gray-600 !important;
+                }
+            }
+        }
+        &.disabled{
+            background-image:none;
+            color:$gray-400 !important;
+            cursor:not-allowed !important;
+            &:hover{
+                cursor:not-allowed !important;
+                background-color: #FFF !important;
+                color: $gray-400 !important;
+            }
+        }
+        &:hover{
+            background-color: $gray-400 !important;
+            color: #FFF !important;
+        }
+    }
+
+    & .hour, & .minute{
+        &.active{
+            background-image:none;
+            background-color: $primary !important;
+            &:hover{
+                background-image:none;
+                background-color: $secondary !important;
+            }
+        }
+    }
+}

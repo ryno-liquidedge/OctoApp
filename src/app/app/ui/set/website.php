@@ -23,7 +23,7 @@ class website extends \com\ui\set\bootstrap {
 		$this->dir_com_inc = \core::$folders->get_com()."/inc";
 		$this->dir_composer = \core::$folders->get_app()."/inc/composer/vendor";
 		$this->dir_app_app_inc = \LiquidedgeApp\Octoapp\Core::DIR_APP_APP_INC;
-		$this->dir_app_app_ui_inc = \LiquidedgeApp\Octoapp\Core::DIR_APP_APP_UI_INC;
+		$this->dir_app_app_ui_inc = \core::$folders->get_app_app()."/ui/inc";
 	}
 	//--------------------------------------------------------------------------------
 	// functions
