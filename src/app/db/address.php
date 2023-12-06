@@ -60,7 +60,6 @@ class address extends \com\core\db\address {
 		// this is where you add additional references
 		// add the same reference to the $this->related_reference_arr property
 		"add_ref_person"		=> array("person"		, "null", DB_REFERENCE, "person"),
-		"add_ref_listing"		=> array("listing"		, "null", DB_REFERENCE, "listing"),
 		"add_remote_id"		    => array("remote id"	, 0		, DB_INT),
 	);
 	//--------------------------------------------------------------------------------
