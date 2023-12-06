@@ -9,9 +9,9 @@ namespace LiquidedgeApp\Octoapp\app\db;
  * @copyright Copyright Liquid Edge Solutions. All rights reserved.
  */
 class config extends \com\core\db\config {
-
+	
 	use \LiquidedgeApp\Octoapp\app\app\db\tra\table;
-
+	
 	//--------------------------------------------------------------------------------
 	// properties
 	//--------------------------------------------------------------------------------
@@ -42,19 +42,19 @@ class config extends \com\core\db\config {
 	public function on_save(&$config) {
 		// date updated
 		if ($config->has_changed()) {
-			$config->cfg_date_updated = \com\date::strtodatetime();
+			$config->cfg_date_updated = \LiquidedgeApp\Octoapp\app\app\date\date::strtodatetime();
 		}
 		$this->sanitize_field_arr($config);
 	}
  	//--------------------------------------------------------------------------------
 	// functions
  	//--------------------------------------------------------------------------------
-	public function on_auth(&$request, $user, $role) {
-		return true;
+	public function on_auth(&$obj, $user, $role) {
+		return \core::$app->get_token()->check('users');
 	}
     //--------------------------------------------------------------------------------
-	public function on_auth_use(&$request, $user, $role) {
-		return true;
+	public function on_auth_use(&$obj, $user, $role) {
+		return \core::$app->get_token()->check('users');
 	}
 	//--------------------------------------------------------------------------------
     public static function get($cfg_name, $options = []) {
@@ -62,7 +62,7 @@ class config extends \com\core\db\config {
         $options = array_merge([
             "field" => false,
             "default" => false,
-            "datatype" => \com\data::TYPE_STRING,
+            "datatype" => \LiquidedgeApp\Octoapp\app\app\data\data::TYPE_STRING,
             "create" => false,
         ], $options);
 
@@ -75,7 +75,7 @@ class config extends \com\core\db\config {
 
                 if(!$value) return $options["default"];
 
-                return \com\data::parse($value, $options["datatype"]);
+                return \LiquidedgeApp\Octoapp\app\app\data\data::parse($value, $options["datatype"]);
             }
             return $options["default"];
         }
@@ -88,11 +88,11 @@ class config extends \com\core\db\config {
         $options = array_merge([
             "field" => "cfg_data",
             "default" => false,
-            "datatype" => \com\data::TYPE_TEXT,
+            "datatype" => \LiquidedgeApp\Octoapp\app\app\data\data::TYPE_TEXT,
             "create" => false,
         ], $options);
 
-        return db_config::get($cfg_name, $options);
+        return \LiquidedgeApp\Octoapp\app\db\config::get($cfg_name, $options);
     }
     //--------------------------------------------------------------------------------
 
@@ -109,7 +109,7 @@ class config extends \com\core\db\config {
     	], $options);
 
     	//get from DB
-        $config = \db_config::get($key, ["create" => true]);
+        $config = \LiquidedgeApp\Octoapp\app\db\config::get($key, ["create" => true]);
 
         //save to db settings if it does not exist and path is not empty
 		if($config->source != "database" && $options["path"] && file_exists($options["path"])){
@@ -137,9 +137,9 @@ class config extends \com\core\db\config {
     	    "path" => false
     	], $options);
 
-        $config = \db_config::get_config_file_item($key, $options);
+        $config = \LiquidedgeApp\Octoapp\app\db\config::get_config_file_item($key, $options);
         if($config && !$config->is_empty("cfg_data")){
-			return \core::dbt("file_item")->get_fromdb(\com\data::parse_reference($config->cfg_data));
+			return \core::dbt("file_item")->get_fromdb(\LiquidedgeApp\Octoapp\app\app\data\data::parse_reference($config->cfg_data));
 		}
     }
  	//--------------------------------------------------------------------------------
