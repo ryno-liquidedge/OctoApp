@@ -220,7 +220,24 @@ class settings extends \com\db\table {
 		    "default" => \core::$folders->get_root_files()."/standard/favicon.png",
 		], $options);
 
-    	return \app\http::get_stream_url(self::get_file_item(SETTING_COMPANY_COMPANY_FAVICON_REF, $options));
+		$file = self::get_company_favicon($options);
+
+    	return \app\http::get_stream_url($file);
+    }
+    //--------------------------------------------------------------------------------
+	public static function get_company_favicon($options = []) {
+
+    	$options = array_merge([
+    	    "default" => \core::$folders->get_root_files()."/standard/favicon.png"
+    	], $options);
+
+        $file_item = self::get_file_item(SETTING_COMPANY_COMPANY_FAVICON_REF, $options);
+        if($file_item) return $file_item;
+
+        if(file_exists(\core::$folders->get_root_files()."/img/favicon.png"))
+        	return \core::$folders->get_root_files()."/img/favicon.png";
+
+        return $options["default"];
     }
     //--------------------------------------------------------------------------------
 
