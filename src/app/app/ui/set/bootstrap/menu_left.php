@@ -38,7 +38,7 @@ class menu_left extends \com\ui\intf\element {
 
 		$this->name = "Menu Left";
 		$this->options = $options;
-		$this->context = new \LiquidedgeApp\Octoapp\app\app\ui\context();
+		$this->context = new \LiquidedgeApp\Octoapp\app\app\context\context();
 
 		// id
 		$this->id = ($options["id"] ? $options["id"] : \com\session::$current->session_uid);
