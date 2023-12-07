@@ -317,14 +317,12 @@ class crop_helper extends \LiquidedgeApp\Octoapp\app\app\intf\standard {
 
             $dst_img = imagecreatetruecolor($dst_img_w, $dst_img_h);
 
-			if(!$this->transparent){
+			if($this->transparent){
 				// Add transparent background to destination image
 				imagefill($dst_img, 0, 0, imagecolorallocatealpha($dst_img, $this->red, $this->green, $this->blue, $this->alpha));
             }else{
                 imagefill($dst_img, 0, 0, imagecolorallocatealpha($dst_img, $this->red, $this->green, $this->blue, 127));
             }
-
-
 
             imagesavealpha($dst_img, true);
             $result = imagecopyresampled($dst_img, $src_img, $dst_x, $dst_y, $src_x, $src_y, $dst_w, $dst_h, $src_w, $src_h);
@@ -453,8 +451,11 @@ class crop_helper extends \LiquidedgeApp\Octoapp\app\app\intf\standard {
             $cropper->data = $data_arr;
             $cropper->dest_dir = $dest;
             $cropper->keep_original = true;
-            $cropper->set_transparent($options["enable_transparency"]);
-            if(!$options["enable_transparency"])$cropper->set_custom_color(0, 0, 0, 0);
+            if($options["enable_transparency"]){
+				$cropper->set_transparent();
+			}else{
+            	$cropper->set_custom_color(255, 255, 255, 0);
+			}
             $this->cropped_filename = $cropper->set_file_custom(basename($filename));
             $cropper->crop();
 
