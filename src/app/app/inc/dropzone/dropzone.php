@@ -28,7 +28,7 @@ class dropzone extends \LiquidedgeApp\Octoapp\app\app\intf\standard {
 		$this->options = $options;
 
 
-		$this->session =  \LiquidedgeApp\Octoapp\app\LiquidedgeApp\Octoapp\app\app\inc\dropzone\session::make(["id" => $options["id"]]);
+		$this->session =  session::make(["id" => $options["id"]]);
 
 	}
 	//--------------------------------------------------------------------------------
@@ -382,7 +382,7 @@ class dropzone extends \LiquidedgeApp\Octoapp\app\app\intf\standard {
 	        "clear" => true
 	    ], $options);
 
-        $dropzone_session =  \LiquidedgeApp\Octoapp\app\LiquidedgeApp\Octoapp\app\app\inc\dropzone\session::make(["id" => $id]);
+        $dropzone_session =  session::make(["id" => $id]);
 
         if(!$dropzone_session->uploaded_files_arr) return false;
 

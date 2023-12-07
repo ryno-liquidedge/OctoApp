@@ -11,7 +11,7 @@ namespace action\dropzone;
 class xupload implements \com\router\int\action {
 
 	/**
-	 * @var  \app\inc\dropzone\session
+	 * @var  \LiquidedgeApp\Octoapp\app\app\inc\dropzone\session
 	 */
 	protected $dropzone_session;
 
