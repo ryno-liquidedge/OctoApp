@@ -240,10 +240,17 @@ class settings extends \com\db\table {
      */
     public static function get_company_logo_light($options = []) {
 
+    	$options = array_merge([
+    	    "default" => \core::$folders->get_root_files()."/standard/placeholder-maxarea_400x150.jpg"
+    	], $options);
+
         $file_item = self::get_file_item(SETTING_COMPANY_COMPANY_LOGO_LIGHT_REF);
         if($file_item) return $file_item;
 
-        return \core::$folders->get_root_files()."/standard/placeholder-maxarea_400x150.jpg";
+        if(file_exists(\core::$folders->get_root_files()."/img/logo.png"))
+        	return \core::$folders->get_root_files()."/img/logo.png";
+
+        return $options["default"];
     }
     //--------------------------------------------------------------------------------
 
@@ -253,10 +260,17 @@ class settings extends \com\db\table {
      */
     public static function get_company_logo_dark($options = []) {
 
+    	$options = array_merge([
+    	    "default" => \core::$folders->get_root_files()."/standard/placeholder-maxarea_400x150.jpg"
+    	], $options);
+
         $file_item = self::get_file_item(SETTING_COMPANY_COMPANY_LOGO_DARK_REF);
         if($file_item) return $file_item;
 
-        return \core::$folders->get_root_files()."/standard/placeholder-maxarea_400x150.jpg";
+        if(file_exists(\core::$folders->get_root_files()."/img/logo_dark.png"))
+        	return \core::$folders->get_root_files()."/img/logo_dark.png";
+
+        return $options["default"];
 
     }
     //--------------------------------------------------------------------------------

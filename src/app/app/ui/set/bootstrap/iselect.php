@@ -250,7 +250,7 @@ class iselect extends \com\ui\intf\element {
 			}*/
 
 			// init select2
-			\com\js::add_domready_script("
+			\LiquidedgeApp\Octoapp\app\app\js\js::add_domready_script("
 				// destroy existing if exists
 				if ($('#{$id}').data('select2')) {
 					// destroy
@@ -323,7 +323,7 @@ class iselect extends \com\ui\intf\element {
 			}
 
 			// script
-			\com\js::add_domready_script("
+			\LiquidedgeApp\Octoapp\app\app\js\js::add_domready_script("
 				// destroy existing if exists
 				if ($('#{$id}').data('select2')) {
 					// destroy
@@ -501,7 +501,7 @@ class iselect extends \com\ui\intf\element {
 
 		// focus
 		if ($options["focus"]) {
-			\com\js::add_script("$('#{$id}').focus();");
+			\LiquidedgeApp\Octoapp\app\app\js\js::add_script("$('#{$id}').focus();");
 		}
 
 		// add new
@@ -529,7 +529,7 @@ class iselect extends \com\ui\intf\element {
 			};
 
 			$html->add(\LiquidedgeApp\Octoapp\app\app\ui\ui::make()->itext("__{$id}add", false, $label, $options["/addnew"]));
-			\com\js::add_script("$('#__{$id}addnew').hide();");
+			\LiquidedgeApp\Octoapp\app\app\js\js::add_script("$('#__{$id}addnew').hide();");
 		}
 
 		//------------------------------

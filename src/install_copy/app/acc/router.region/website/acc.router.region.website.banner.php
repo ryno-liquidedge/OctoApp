@@ -24,7 +24,7 @@ class banner implements \com\router\int\region {
 	public function render() {
 
 		// html
-		\com\js::set_script_top_force(true);
+		\LiquidedgeApp\Octoapp\app\app\js\js::set_script_top_force(true);
 		$buffer = \app\ui::make()->buffer();
 
 		$buffer->div(["@id" => "page-top"]);

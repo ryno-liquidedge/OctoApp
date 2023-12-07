@@ -32,7 +32,7 @@ class body implements \com\router\int\region {
 	public function render() {
 		// html
 		$html = \com\ui::make()->buffer();
-		\com\js::set_script_top_force(true);
+		\LiquidedgeApp\Octoapp\app\app\js\js::set_script_top_force(true);
 
 		// wrapper: start
 		$html->div_("#panel_body", [".px-2" => true]);
@@ -54,7 +54,7 @@ class body implements \com\router\int\region {
 		$html->_div();
 
 		// done
-		\com\js::set_script_top_force(false);
+		\LiquidedgeApp\Octoapp\app\app\js\js::set_script_top_force(false);
 		return $html->get_clean();
 	}
 	//--------------------------------------------------------------------------------

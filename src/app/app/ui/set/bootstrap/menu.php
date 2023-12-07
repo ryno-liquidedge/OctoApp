@@ -132,7 +132,7 @@ class menu extends \com\ui\intf\menu {
 		$js_arr[] = "var {$this->id} = new com_menu('{$this->id}', '{$page_id}', {disable_collapse: '{$options["disable_collapse"]}', disable_headers: '{$options["disable_headers"]}'});";
 
 		// javascript: done
-		\com\js::add_script(implode(" ", $js_arr));
+		\LiquidedgeApp\Octoapp\app\app\js\js::add_script(implode(" ", $js_arr));
 
 		// done
 		return $this->html->get_clean();

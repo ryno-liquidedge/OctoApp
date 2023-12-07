@@ -42,7 +42,7 @@ class pagination extends \LiquidedgeApp\Octoapp\app\app\intf\standard {
 		$json_options = json_encode($options);
 
 		//apply script
-		\com\js::add_script("
+		\LiquidedgeApp\Octoapp\app\app\js\js::add_script("
 		    $('#{$this->id}').bootpag($json_options).on('page', function(event, num){
 		        var fn = {$options["!click"]};
                 if (fn) fn.apply(this, [num]);

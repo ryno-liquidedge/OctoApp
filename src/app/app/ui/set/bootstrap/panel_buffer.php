@@ -81,7 +81,7 @@ class panel_buffer extends \com\ui\intf\panel {
      */
   	public function start() {
 
-  	    $js_options = \com\js::create_options($this->js_options);
+  	    $js_options = \LiquidedgeApp\Octoapp\app\app\js\js::create_options($this->js_options);
 
   		// build js
 		$SCRIPT_csrf = \core::$app->get_response()->get_csrf();
@@ -93,7 +93,7 @@ class panel_buffer extends \com\ui\intf\panel {
   		if ($this->start_index !== false && !$this->content) $SCRIPT_init .= "$this->id.refresh($this->start_index, $js_options).done(function(){ {$this->js_done} });";
 
   		// view js
-  		\com\js::add_script($SCRIPT_init);
+  		\LiquidedgeApp\Octoapp\app\app\js\js::add_script($SCRIPT_init);
 
   		// html
 		$this->buffer->div_("#panel_{$this->id}", [

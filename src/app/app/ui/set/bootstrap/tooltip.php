@@ -31,7 +31,7 @@ class tooltip extends \com\ui\intf\element {
 		$this->run_once = true;
 
 		// use javascript to add tooltip
-		\com\js::add_script("
+		\LiquidedgeApp\Octoapp\app\app\js\js::add_script("
 			var tooltipList = [].slice.call(document.querySelectorAll('[title]'));
 			tooltipList.map(function (el) {
 			  return bootstrap.Tooltip.getOrCreateInstance(el, {html:true});

@@ -306,8 +306,8 @@ class itext extends \com\ui\set\bootstrap\itext {
 		// limit
 		if ($options["limit"]) {
 			$JS_id = strtr($id, ["[" => "\\\\[", "]" => "\\\\]", "." => "\\\\."]);
-			\com\js::add_event("#{$JS_id}", 'keypress', "return core.event.is_{$options["limit"]}(event);");
-			\com\js::add_event("#{$JS_id}", 'change', "core.form.limit_{$options["limit"]}(this);");
+			\LiquidedgeApp\Octoapp\app\app\js\js::add_event("#{$JS_id}", 'keypress', "return core.event.is_{$options["limit"]}(event);");
+			\LiquidedgeApp\Octoapp\app\app\js\js::add_event("#{$JS_id}", 'change', "core.form.limit_{$options["limit"]}(this);");
 
 			// limit: email
 			if ($options["limit"] == "email" && \com\ui\helper::$current_form) {
@@ -386,7 +386,7 @@ class itext extends \com\ui\set\bootstrap\itext {
 				}",
 			]);
 
-			\com\js::add_script("
+			\LiquidedgeApp\Octoapp\app\app\js\js::add_script("
 				$(function(){
 					$( '#$id' ).autocomplete($json_options);
 				})
@@ -401,7 +401,7 @@ class itext extends \com\ui\set\bootstrap\itext {
 
 		// focus
 		if ($options["focus"]) {
-			\com\js::add_script("
+			\LiquidedgeApp\Octoapp\app\app\js\js::add_script("
 				setTimeout(function(){
 					$('#{$id}').focus();
 				}, {$options["focus_delay"]});

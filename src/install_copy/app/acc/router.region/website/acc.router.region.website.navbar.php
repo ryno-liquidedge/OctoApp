@@ -24,7 +24,7 @@ class navbar implements \com\router\int\region {
 
         // html
 		$buffer = \app\ui::make()->buffer();
-		\com\js::set_script_top_force(true);
+		\LiquidedgeApp\Octoapp\app\app\js\js::set_script_top_force(true);
 
 
 		$buffer->section_([".border-bottom border-3 border-secondary" => true]);

@@ -358,7 +358,7 @@ class wysiwyg extends \com\ui\intf\wysiwyg {
 			"*dialogsInBody" => true, // https://github.com/summernote/summernote/issues/1857
 			//"*disableResizeEditor" => true,
 			"*focus" => $this->focus,
-			"*callbacks" => "!".\com\js::create_options($callbacks),
+			"*callbacks" => "!".\LiquidedgeApp\Octoapp\app\app\js\js::create_options($callbacks),
 			"*colors" => $this->color_arr,
 			"*colorsName" => $this->color_name_arr,
 		];
@@ -369,22 +369,22 @@ class wysiwyg extends \com\ui\intf\wysiwyg {
 		}
 
 		// prep options for js
-		$options = \com\js::create_options($options);
+		$options = \LiquidedgeApp\Octoapp\app\app\js\js::create_options($options);
 
-		\com\js::add_script("
+		\LiquidedgeApp\Octoapp\app\app\js\js::add_script("
 		    $(function(){
 		        $('#{$this->id}').summernote({$options});
 		    })
 		");
 
 		// force style on variable plugin dropdowns to be scrollable
-		\com\js::add_domready_script("$('.note-editor .note-dropdown-menu').has('.dropdown-item[data-event=\\\"variablesDropdown\\\"]').css({'max-height':'300px', 'overflow-y':'auto'});");
+		\LiquidedgeApp\Octoapp\app\app\js\js::add_domready_script("$('.note-editor .note-dropdown-menu').has('.dropdown-item[data-event=\\\"variablesDropdown\\\"]').css({'max-height':'300px', 'overflow-y':'auto'});");
 
 		// set font size dropdown default
 		if (isset($this->font_size_default)) {
-			\com\js::add_domready_script("$('.note-editor').css('font-size', '{$this->font_size_default}px');");
-			\com\js::add_domready_script("$('#{$this->id}').summernote('fontSize', {$this->font_size_default});");
-			\com\js::add_domready_script("$('#{$this->id}').summernote('formatPara');");
+			\LiquidedgeApp\Octoapp\app\app\js\js::add_domready_script("$('.note-editor').css('font-size', '{$this->font_size_default}px');");
+			\LiquidedgeApp\Octoapp\app\app\js\js::add_domready_script("$('#{$this->id}').summernote('fontSize', {$this->font_size_default});");
+			\LiquidedgeApp\Octoapp\app\app\js\js::add_domready_script("$('#{$this->id}').summernote('formatPara');");
 		}
 
 		// done

@@ -107,10 +107,10 @@ class datetimepicker extends \LiquidedgeApp\Octoapp\app\app\intf\standard {
             "showClose" => false
 		];
 
-		$js_options = \com\js::create_options(array_merge($js_options, $options["/js"]));
+		$js_options = \LiquidedgeApp\Octoapp\app\app\js\js::create_options(array_merge($js_options, $options["/js"]));
 
 		if (!$options["hidden"] && !$options["@disabled"]) {
-			\com\js::add_script("
+			\LiquidedgeApp\Octoapp\app\app\js\js::add_script("
 			
 				$(function(){
 					$('#{$JS_id}').datetimepicker({$js_options});

@@ -54,7 +54,7 @@ class form extends \com\ui\intf\element {
 
 		// serialize
 		if (!$options["@noserialize"]) {
-			\com\js::add_domready_script("$('#{$id}').data('serialize', $('#{$id}').find('input:not([noserialize], [type=hidden]), select:not([noserialize], [type=hidden]), textarea:not([noserialize], [type=hidden])').serialize());");
+			\LiquidedgeApp\Octoapp\app\app\js\js::add_domready_script("$('#{$id}').data('serialize', $('#{$id}').find('input:not([noserialize], [type=hidden]), select:not([noserialize], [type=hidden]), textarea:not([noserialize], [type=hidden])').serialize());");
 		}
 
   		// done

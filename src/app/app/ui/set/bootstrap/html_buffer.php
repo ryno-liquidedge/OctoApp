@@ -513,7 +513,7 @@ class html_buffer extends \com\ui\set\bootstrap\html {
 		static $active_menu_count = 0;
 		if ($this->menu_panel) {
 			if ($onclick && !$active_menu_count) {
-				\com\js::add_script($onclick, ["after" => true]);
+				\LiquidedgeApp\Octoapp\app\app\js\js::add_script($onclick, ["after" => true]);
 				$active_menu_count++;
 			}
 		}

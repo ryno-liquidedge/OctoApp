@@ -44,7 +44,7 @@ class icurrency extends \com\ui\intf\element {
 
   		// currency mask js
 		if ($options["group_digits"]) {
-			\com\js::add_script("
+			\LiquidedgeApp\Octoapp\app\app\js\js::add_script("
 				$('#{$options["id"]}').inputmask({
 				  'alias': 'currency',
 				  'groupSeparator': ' ',

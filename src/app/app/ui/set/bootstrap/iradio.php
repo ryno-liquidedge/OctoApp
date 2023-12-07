@@ -150,9 +150,9 @@ class iradio extends \com\ui\intf\element {
 					".form-check-input" => true,
 				];
 				if (false !== $value && "{$value_option_index}" == "{$value}") {
-					\com\js::add_script("$('#{$id}[value=\"{$value}\"]').attr('checked', true);");
+					\LiquidedgeApp\Octoapp\app\app\js\js::add_script("$('#{$id}[value=\"{$value}\"]').attr('checked', true);");
 					if($options[".btn-check"]){
-						\com\js::add_script("$('#{$id}[value=\"{$value}\"]').closest('label').addClass('active');");
+						\LiquidedgeApp\Octoapp\app\app\js\js::add_script("$('#{$id}[value=\"{$value}\"]').closest('label').addClass('active');");
 					}
 				}
 

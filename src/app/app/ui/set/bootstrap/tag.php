@@ -179,7 +179,7 @@ class tag extends \com\ui\intf\tag {
 
 			// script
 			$js_id = \LiquidedgeApp\Octoapp\app\app\js\js::parse_id($options["@id"]);
-			\com\js::add_script("$('#{$js_id}').keypress(function(event) { if (event.which == 13) { event.preventDefault(); {$options["!enter"]}; }});");
+			\LiquidedgeApp\Octoapp\app\app\js\js::add_script("$('#{$js_id}').keypress(function(event) { if (event.which == 13) { event.preventDefault(); {$options["!enter"]}; }});");
 			unset($options["!enter"]);
 		}
 

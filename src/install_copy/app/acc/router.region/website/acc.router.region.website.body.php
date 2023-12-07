@@ -46,7 +46,7 @@ class body implements \com\router\int\region {
         $buffer->_div();
 
 		// done
-		\com\js::set_script_top_force(false);
+		\LiquidedgeApp\Octoapp\app\app\js\js::set_script_top_force(false);
 		return $buffer->get_clean();
 	}
 	//--------------------------------------------------------------------------------

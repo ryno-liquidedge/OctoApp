@@ -162,7 +162,7 @@ class carousel extends \com\ui\intf\element {
                 $buffer->_div();
 		    $buffer->_div();
 
-		    \com\js::add_script("
+		    \LiquidedgeApp\Octoapp\app\app\js\js::add_script("
 				$(function(){
 					$('.carousel-gallery-wrapper').on('mousewheel DOMMouseScroll', function(event){
 

@@ -107,7 +107,7 @@ class icounter extends \com\ui\intf\element {
 
 		$js_id = \LiquidedgeApp\Octoapp\app\app\js\js::parse_id($options["id"]);
 
-		\com\js::add_script("
+		\LiquidedgeApp\Octoapp\app\app\js\js::add_script("
 			
 			var {$input_id} = {
 				plus:function(){

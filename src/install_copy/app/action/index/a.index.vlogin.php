@@ -77,7 +77,7 @@ class vlogin implements \com\router\int\action {
 								    $buffer->_div();
 								$buffer->_div();
 
-								\com\js::add_script("
+								\LiquidedgeApp\Octoapp\app\app\js\js::add_script("
 									$(function(){
 										$('body').on('click', '.btn-submit', function(){
 											let el = $(this);

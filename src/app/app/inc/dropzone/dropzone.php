@@ -328,7 +328,7 @@ class dropzone extends \LiquidedgeApp\Octoapp\app\app\intf\standard {
 						}
 					});
 				
-					". \LiquidedgeApp\Octoapp\app\app\data\js::ajax("?c=dropzone/xdelete", [
+					". \LiquidedgeApp\Octoapp\app\app\js\js::ajax("?c=dropzone/xdelete", [
 						"*data" => "!{session_id:'{$id}', filename:file.name, index:file.index}",
 						"*success" => "!ondelete.apply(this, [file])"
 					])."
@@ -340,7 +340,7 @@ class dropzone extends \LiquidedgeApp\Octoapp\app\app\intf\standard {
 				
 			}";
 
-			$js_options = \com\js::create_options($js_options);
+			$js_options = \LiquidedgeApp\Octoapp\app\app\js\js::create_options($js_options);
 
 			$buffer->script(["*" => "
 			

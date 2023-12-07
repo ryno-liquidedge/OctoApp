@@ -795,7 +795,7 @@ class iaddress extends \com\ui\intf\element {
 
 			core.workspace.add_type__onchange({$address->id});
 			";
-		\com\js::add_script($JS);
+		\LiquidedgeApp\Octoapp\app\app\js\js::add_script($JS);
 
 		// html
 		$html = \LiquidedgeApp\Octoapp\app\app\ui\ui::make()->buffer();
@@ -1170,7 +1170,7 @@ class iaddress extends \com\ui\intf\element {
 
 			core.workspace.add_type__onchange({$address->id});
 			";
-		\com\js::add_script($JS);
+		\LiquidedgeApp\Octoapp\app\app\js\js::add_script($JS);
 
 		// html
 		$html = \LiquidedgeApp\Octoapp\app\app\ui\ui::make()->buffer();

@@ -2260,7 +2260,7 @@ class table extends \com\ui\set\bootstrap\table {
 			$config_class = \com\core\config\uitable::make(["cfg_name" => $this->cache_id]);
 			$JS_config_data = json_encode($config_class->get_config()->cfg_data ?? false);
 
-			\com\js::add_script("$('#{$this->id}').comlist({
+			\LiquidedgeApp\Octoapp\app\app\js\js::add_script("$('#{$this->id}').comlist({
 				url: '{$JS_url}{$this->append_url}{$this->append_url_custom}',
 				panel: '{$JS_panel}',
 				navigation: '{$this->navigation_type}',
@@ -2273,7 +2273,7 @@ class table extends \com\ui\set\bootstrap\table {
 			});");
 		}
 		else {
-			\com\js::add_script("$('#{$this->id}').comlist({
+			\LiquidedgeApp\Octoapp\app\app\js\js::add_script("$('#{$this->id}').comlist({
 				url: '{$JS_url}{$this->append_url}{$this->append_url_custom}',
 				panel: '{$JS_panel}',
 				navigation: '{$this->navigation_type}',
@@ -2287,7 +2287,7 @@ class table extends \com\ui\set\bootstrap\table {
 		// ordering
 		if ($this->ordering_event_js) {
 			$JS_event = \com\str::escape_singlequote($this->ordering_event_js);
-			\com\js::add_script("
+			\LiquidedgeApp\Octoapp\app\app\js\js::add_script("
 				$('#{$this->id} table tbody').sortable({
 					axis: 'y',
 					containment: 'parent',
@@ -2315,7 +2315,7 @@ class table extends \com\ui\set\bootstrap\table {
 		}
 
 		if(!$this->item_arr){
-		    \com\js::add_script("
+		    \LiquidedgeApp\Octoapp\app\app\js\js::add_script("
 		        $('#{$this->id} .ui-table-cell-actions').hide();
 		    ");
         }

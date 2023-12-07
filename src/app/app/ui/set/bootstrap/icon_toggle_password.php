@@ -39,7 +39,7 @@ class icon_toggle_password extends \com\ui\intf\element {
 		$buffer = \LiquidedgeApp\Octoapp\app\app\ui\ui::make()->buffer();
 		$buffer->xicon("fa-eye-slash", $options);
 
-		\com\js::add_script("
+		\LiquidedgeApp\Octoapp\app\app\js\js::add_script("
         	$(function(){
         		$('body').on('click', '.uid-$uid', function(){
         		    let element = $(this);

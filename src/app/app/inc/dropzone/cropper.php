@@ -177,7 +177,7 @@ class cropper extends \LiquidedgeApp\Octoapp\app\app\intf\standard {
 				document.getElementsByTagName('body')[0].appendChild(form);
 				
 				//init
-				let cropper = $('#{$this->id}').cropper(".\com\js::create_options($js_options).");
+				let cropper = $('#{$this->id}').cropper(".\LiquidedgeApp\Octoapp\app\app\js\js::create_options($js_options).");
 				
 				// Get the Cropper.js instance after initialized
 				{$this->id} = cropper.data('cropper');
@@ -246,7 +246,7 @@ class cropper extends \LiquidedgeApp\Octoapp\app\app\intf\standard {
 	}
 	//--------------------------------------------------------------------------------
 	private function build_submit_js() {
-		return \com\js::ajax($this->action, [
+		return \LiquidedgeApp\Octoapp\app\app\js\js::ajax($this->action, [
 			"*form" => "#{$this->id_form}",
 			"*data" => $this->data_arr,
 			"*beforeSend" => "!{$this->before_send}",

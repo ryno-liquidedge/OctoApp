@@ -192,7 +192,7 @@ class map extends \com\ui\intf\map {
 		$this->build_js();
 
 		// run
-        \com\js::add_script("
+        \LiquidedgeApp\Octoapp\app\app\js\js::add_script("
             $(function(){
                 (core.workspace.google_maps_loaded ? initMap() : loadJS())
             })

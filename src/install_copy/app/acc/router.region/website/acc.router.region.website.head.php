@@ -43,7 +43,7 @@ class head implements \com\router\int\region {
 
 
 		//init script
-		\com\js::add_script("//custom script");
+		\LiquidedgeApp\Octoapp\app\app\js\js::add_script("//custom script");
 		$html->script(false, ["@type" => "text/javascript", "@src" => "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"]);
 
 		//google recaptcha

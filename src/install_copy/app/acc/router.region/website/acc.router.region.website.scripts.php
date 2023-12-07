@@ -25,8 +25,8 @@ class scripts implements \com\router\int\region {
 //	    $html->script(false, ["@type" => "text/javascript", "@src" => \app\http::get_stream_url(\core::$folders->get_app_app()."/ui/inc/js/fullcalendar-bs5-addon.js")]);
 	    $html->script(false, ["@type" => "text/javascript", "@src" => "index.php?c=index/xfile&context=website&name=js&v={$js_version}"]);
 //	    $html->script(false, ["@type" => "text/javascript", "@src" => "https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"]);
-	    $html->add(\com\js::get_script());
-	    $html->add(\com\js::get_domready());
+	    $html->add(\LiquidedgeApp\Octoapp\app\app\js\js::get_script());
+	    $html->add(\LiquidedgeApp\Octoapp\app\app\js\js::get_domready());
 
 	    $html->script(["*" => "
 	        // placeholder function 

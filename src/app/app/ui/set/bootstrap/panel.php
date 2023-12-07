@@ -64,7 +64,7 @@ class panel extends \com\ui\set\bootstrap\panel {
   		$this->js_options["*no_overlay"] = true;
   		$this->js_options["*autoscroll"] = false;
 
-  	    $js_options = \com\js::create_options($this->js_options);
+  	    $js_options = \LiquidedgeApp\Octoapp\app\app\js\js::create_options($this->js_options);
 
   		// build js
 		$SCRIPT_csrf = \core::$app->get_response()->get_csrf();
@@ -76,7 +76,7 @@ class panel extends \com\ui\set\bootstrap\panel {
   		if ($this->start_index !== false) $SCRIPT_init .= "$this->id.refresh($this->start_index, $js_options);";
 
   		// view js
-  		\com\js::add_script($SCRIPT_init);
+  		\LiquidedgeApp\Octoapp\app\app\js\js::add_script($SCRIPT_init);
 
   		// html
 		echo \LiquidedgeApp\Octoapp\app\app\ui\ui::make()->tag()->div_("#panel_{$this->id}", [

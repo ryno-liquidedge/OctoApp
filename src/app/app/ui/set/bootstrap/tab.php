@@ -133,7 +133,7 @@ class tab extends \com\ui\intf\tab {
 		if ($this->start_index !== false) $js_arr[] = "{$this->id}.refresh({$this->start_index}, {autoscroll:false, no_overlay:true});";
 
 		// javascript: done
-  		\com\js::add_script(implode(" ", $js_arr));
+  		\LiquidedgeApp\Octoapp\app\app\js\js::add_script(implode(" ", $js_arr));
 
   		// panel
 		$html->div_("#panel_{$this->id}", ["@class" => $this->class]);
@@ -153,7 +153,7 @@ class tab extends \com\ui\intf\tab {
   		$html->_div();
 
         // start tab
-        \com\js::add_script("{$this->id}.select({$this->start_tab_index}, {autoscroll:false, no_overlay:true});");
+        \LiquidedgeApp\Octoapp\app\app\js\js::add_script("{$this->id}.select({$this->start_tab_index}, {autoscroll:false, no_overlay:true});");
 
         // done
 		echo $html->get();

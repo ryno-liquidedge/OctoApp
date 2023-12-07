@@ -79,7 +79,7 @@ class loader extends \LiquidedgeApp\Octoapp\app\app\ui\intf\element {
 			$buffer->_div();
         $buffer->_div();
 
-        \com\js::add_script("
+        \LiquidedgeApp\Octoapp\app\app\js\js::add_script("
             $(function(){
                 setTimeout(function(){
                     core.overlay.hide();
