@@ -15,7 +15,7 @@ class vdatabase implements \com\router\int\action {
 	// magic
 	//--------------------------------------------------------------------------------
 	protected function __construct() {
-		\core::$app->set_section(\acc\core\section\api::make());
+		\core::$app->set_section(\acc\core\section\clean::make());
 	}
 	//--------------------------------------------------------------------------------
 	public function auth() {
