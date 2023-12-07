@@ -1,0 +1,42 @@
+.datetimepicker .day {
+  padding: 5px; }
+.datetimepicker .day.active, .datetimepicker .month.active, .datetimepicker .year.active {
+  background-image: none;
+  background-color: #6a90ca !important; }
+  .datetimepicker .day.active:hover, .datetimepicker .month.active:hover, .datetimepicker .year.active:hover {
+    background-image: none;
+    background-color: #435a7e !important; }
+.datetimepicker .day.today, .datetimepicker .month.today, .datetimepicker .year.today {
+  background-image: none;
+  background-color: #c29ffa; }
+  .datetimepicker .day.today:hover, .datetimepicker .month.today:hover, .datetimepicker .year.today:hover {
+    background-image: none;
+    background-color: #8540f5 !important; }
+    .datetimepicker .day.today:hover.active, .datetimepicker .month.today:hover.active, .datetimepicker .year.today:hover.active {
+      background-color: #435a7e !important; }
+  .datetimepicker .day.today.disabled, .datetimepicker .month.today.disabled, .datetimepicker .year.today.disabled {
+    background-image: none !important;
+    background-color: #e9ecef !important;
+    color: #6c757d !important; }
+    .datetimepicker .day.today.disabled:hover, .datetimepicker .month.today.disabled:hover, .datetimepicker .year.today.disabled:hover {
+      background-color: #FFF !important;
+      color: #6c757d !important; }
+.datetimepicker .day.disabled, .datetimepicker .month.disabled, .datetimepicker .year.disabled {
+  background-image: none;
+  color: #ced4da !important;
+  cursor: not-allowed !important; }
+  .datetimepicker .day.disabled:hover, .datetimepicker .month.disabled:hover, .datetimepicker .year.disabled:hover {
+    cursor: not-allowed !important;
+    background-color: #FFF !important;
+    color: #ced4da !important; }
+.datetimepicker .day:hover, .datetimepicker .month:hover, .datetimepicker .year:hover {
+  background-color: #ced4da !important;
+  color: #FFF !important; }
+.datetimepicker .hour.active, .datetimepicker .minute.active {
+  background-image: none;
+  background-color: #6a90ca !important; }
+  .datetimepicker .hour.active:hover, .datetimepicker .minute.active:hover {
+    background-image: none;
+    background-color: #435a7e !important; }
+
+/*# sourceMappingURL=datetimepicker.css.map */
