@@ -24,8 +24,8 @@ class xupload implements \com\router\int\action {
     //--------------------------------------------------------------------------------
     public function run () {
 
-    	$session_id = $this->request->get('session_id', \com\data::TYPE_STRING);
-    	$index = $this->request->get('index', \com\data::TYPE_STRING);
+    	$session_id = $this->request->get('session_id', \LiquidedgeApp\Octoapp\app\app\data\data::TYPE_STRING);
+    	$index = $this->request->get('index', \LiquidedgeApp\Octoapp\app\app\data\data::TYPE_STRING);
 		if(!isset($_FILES["file"]["name"]))
 			return \com\error::create("Error uploading file");
 
@@ -36,12 +36,12 @@ class xupload implements \com\router\int\action {
 		}
 
 		//init session
-		$this->dropzone_session =  \app\inc\dropzone\session::make(["id" => $session_id]);
+		$this->dropzone_session =  \LiquidedgeApp\Octoapp\app\app\inc\dropzone\session::make(["id" => $session_id]);
 
 		//build file info
 		$pathinfo = pathinfo(strtolower($_FILES["file"]["name"]));
-		$pathinfo["filename"] = \com\data::parse_file($pathinfo["filename"]);
-		$pathinfo["basename"] = \com\data::parse_file($pathinfo["basename"]);
+		$pathinfo["filename"] = \LiquidedgeApp\Octoapp\app\app\data\data::parse_file($pathinfo["filename"]);
+		$pathinfo["basename"] = \LiquidedgeApp\Octoapp\app\app\data\data::parse_file($pathinfo["basename"]);
 
 		// check that folder exists
 		\com\os::mkdir($this->dropzone_session->folder);

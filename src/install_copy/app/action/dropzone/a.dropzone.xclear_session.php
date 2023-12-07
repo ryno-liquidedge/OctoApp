@@ -27,7 +27,7 @@ class xclear_session implements \com\router\int\action {
     	$session_id = $this->request->get('session_id', \com\data::TYPE_STRING, ["trusted" => true]);
 
 		//init session
-		$this->dropzone_session =  \app\inc\dropzone\session::make(["id" => $session_id]);
+		$this->dropzone_session =  \LiquidedgeApp\Octoapp\app\app\inc\dropzone\session::make(["id" => $session_id]);
 		$this->dropzone_session->clear();
 
     }

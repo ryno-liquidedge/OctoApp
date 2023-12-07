@@ -33,7 +33,7 @@ class crop implements \com\router\int\action {
 		}
 
 		//init session
-		$this->dropzone_session =  \app\inc\dropzone\session::make(["id" => $session_id]);
+		$this->dropzone_session =  \LiquidedgeApp\Octoapp\app\app\inc\dropzone\session::make(["id" => $session_id]);
 
 		//params
         $id = $this->dropzone_session->dropzone_id;
@@ -44,7 +44,7 @@ class crop implements \com\router\int\action {
 		$file = $this->dropzone_session->get_uploaded_file($index, "original");
 
 		if(file_exists($file)){
-			$cropper =  \app\inc\dropzone\cropper::make([
+			$cropper =  \LiquidedgeApp\Octoapp\app\app\inc\dropzone\cropper::make([
 			    "!success" => $this->dropzone_session->on_crop,
             ]);
 

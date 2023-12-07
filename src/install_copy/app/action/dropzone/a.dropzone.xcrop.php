@@ -34,12 +34,12 @@ class xcrop implements \com\router\int\action {
 
 
 		//init session
-		$this->dropzone_session =  \app\inc\dropzone\session::make(["id" => $session_id]);
+		$this->dropzone_session =  \LiquidedgeApp\Octoapp\app\app\inc\dropzone\session::make(["id" => $session_id]);
 
 		//params
 		$filename = $this->dropzone_session->get_uploaded_file($index, "original");
 
-		$result =  \app\inc\dropzone\crop_helper::make()->xcrop($filename, ["index" => $index]);
+		$result =  \LiquidedgeApp\Octoapp\app\app\inc\dropzone\crop_helper::make()->xcrop($filename, ["index" => $index]);
 
 		$this->dropzone_session->add_uploaded_file($result["original"], $result["cropped"], ["index" => $index]);
 		$this->dropzone_session->update();

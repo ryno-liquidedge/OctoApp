@@ -36,7 +36,7 @@ class xstream implements \com\router\int\action {
 	//--------------------------------------------------------------------------------
     public function stream_file_from_session() {
 
-		$dropzone_session =  \app\inc\dropzone\session::make(["id" => $this->session_id]);
+		$dropzone_session =  \LiquidedgeApp\Octoapp\app\app\inc\dropzone\session::make(["id" => $this->session_id]);
 		$item = $dropzone_session->get_uploaded_file($this->index);
 		$filename = isset($item["original"]) ? $item["original"] : false;
 

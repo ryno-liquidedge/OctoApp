@@ -34,7 +34,7 @@ class xdelete implements \com\router\int\action {
 		}
 
 		//init session
-		$this->dropzone_session =  \app\inc\dropzone\session::make(["id" => $session_id]);
+		$this->dropzone_session =  \LiquidedgeApp\Octoapp\app\app\inc\dropzone\session::make(["id" => $session_id]);
 		$this->dropzone_session->remove_uploaded_file($index);
 		$this->dropzone_session->update();
 

@@ -43,7 +43,7 @@ class recrop implements \com\router\int\action {
 		$manager->copy_to($new_filename);
 
 
-		$session =  \app\inc\dropzone\session::make(["id" => $session_id]);
+		$session =  \LiquidedgeApp\Octoapp\app\app\inc\dropzone\session::make(["id" => $session_id]);
 		$session->dropzone_id = $session_id;
 		$session->element_id = $session_id;
 		$session->folder = dirname($new_filename);
@@ -61,9 +61,9 @@ class recrop implements \com\router\int\action {
 			$this->buffer->div_([".col-12 mt-3" => true]);
 
 				//init session
-				$dropzone_session =  \app\inc\dropzone\session::make(["id" => $session_id]);
+				$dropzone_session =  \LiquidedgeApp\Octoapp\app\app\inc\dropzone\session::make(["id" => $session_id]);
 
-				$cropper =  \app\inc\dropzone\cropper::make([
+				$cropper =  \LiquidedgeApp\Octoapp\app\app\inc\dropzone\cropper::make([
 					"action" => "?c=dropzone/xrecrop",
 				]);
 				$cropper->set_src(\app\http::get_stream_url($new_filename));
