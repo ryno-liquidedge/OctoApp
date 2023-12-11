@@ -320,7 +320,7 @@ class iselect extends \com\ui\intf\element {
 					var option = new Option('{$options["autocomplete_value"]}', {$options["autocomplete_id"]}, true, true);
 					$('#{$id}').append(option).trigger('change');
 				";
-			} 
+			}
 
 			// script
 			\LiquidedgeApp\Octoapp\app\app\js\js::add_domready_script("
