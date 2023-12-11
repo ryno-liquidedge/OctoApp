@@ -114,7 +114,7 @@ class bootstrap extends \com\ui\set\bootstrap {
 			"{$this->dir_app_app_ui_inc}/js/bootstrap.parallax.js",
 
 			//signature
-			"{$this->dir_composer}/liquidedge-app/signature-pad/src/signature_pad.js",
+			"{$this->dir_composer}/liquidedge-app/signature_pad/src/signature_pad.js",
 
 			//custom
 			"{$this->dir_app_app_ui_inc}/js/bootstrap-multiselect.js",
