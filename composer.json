@@ -27,7 +27,7 @@
 
     "magicalex/write-ini-file": "2.0.1",
 
-    "intelogie/signature-pad": "dev-master",
+    "intelogie/signature-pad": "*",
     "matthiasmullie/scrapbook": "1.5.1",
     "league/flysystem": "3.19.0"
   },
