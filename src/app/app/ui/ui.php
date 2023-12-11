@@ -461,7 +461,7 @@ class ui extends \com\ui {
 	    $options = array_merge([
 	        "id" => $id,
 	        "value" => $value,
-	        "width" => 400,
+	        "width" => 600,
 	        "height" => 200,
 	    ], $options);
 

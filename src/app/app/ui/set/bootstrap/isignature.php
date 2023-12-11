@@ -128,16 +128,25 @@ class isignature extends \LiquidedgeApp\Octoapp\app\app\ui\intf\element {
 						on_start.apply(this, [ev]);
 					},
 					onEnd: function(ev){
-						$('#$id').val({$id}.toDataURL());
+						let data_url = {$id}.toDataURL();
+						$('#$id').val(data_url);
 					  
+						{$id}.data.push(data_url);
+						
 						let on_complete = {$options["!complete"]};
 						on_complete.apply(this, [ev]);
+						
 					},
                 });
+                
+                {$id}.data = [];
                 
                 
                 {$id}.clearCanvas = function(ev){
                     $('#$id').val('');
+                    
+                    {$id}.data = [];
+                    
                     let clear = {$options["!clear"]};
                     clear.apply(this, [ev]);
                     
@@ -151,10 +160,14 @@ class isignature extends \LiquidedgeApp\Octoapp\app\app\ui\intf\element {
                 });
                 
                 $('body').on('click', '.undo-canvas-{$js_id}', function(){
-                    var data = {$id}.toData();
+                    var data = {$id}.data;
                     if (data) {
                         data.pop();
-                        {$id}.fromData(data);
+                        if(data.length <= 1){
+							{$id}.clear();
+                        }else{
+							{$id}.fromDataURL(data[data.length - 1]);
+                        }
                     }
                 });
                 
