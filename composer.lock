@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f140bf4efcb32c9cbb91c4d1a4a6d77c",
+    "content-hash": "2feef5904b5f52c2d35a0436c5fb1f2c",
     "packages": [
         {
             "name": "fortawesome/font-awesome",
@@ -450,34 +450,6 @@
                 "image"
             ],
             "time": "2019-01-12T11:54:02+00:00"
-        },
-        {
-            "name": "intelogie/signature-pad",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/INTELOGIE/signature_pad.git",
-                "reference": "2d7f0977430497b13687201eb13744efbca724ec"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/INTELOGIE/signature_pad/zipball/2d7f0977430497b13687201eb13744efbca724ec",
-                "reference": "2d7f0977430497b13687201eb13744efbca724ec",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://repo.packagist.com/liquid-edge/dists/%package%/%version%/r%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
-            "default-branch": true,
-            "type": "library",
-            "notification-url": "https://repo.packagist.com/liquid-edge/downloads/",
-            "support": {
-                "source": "https://github.com/INTELOGIE/signature_pad/tree/master"
-            },
-            "time": "2019-03-20T16:35:37+00:00"
         },
         {
             "name": "league/flysystem",
@@ -1600,6 +1572,33 @@
             "time": "2019-03-08T08:55:37+00:00"
         },
         {
+            "name": "ryno-liquidedge/signature_pad",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ryno-liquidedge/signature_pad.git",
+                "reference": "550378f3ad65cebdbeb239ddf6646be567a6aeb2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ryno-liquidedge/signature_pad/zipball/550378f3ad65cebdbeb239ddf6646be567a6aeb2",
+                "reference": "550378f3ad65cebdbeb239ddf6646be567a6aeb2",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://repo.packagist.com/liquid-edge/dists/%package%/%version%/r%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "type": "library",
+            "notification-url": "https://repo.packagist.com/liquid-edge/downloads/",
+            "support": {
+                "source": "https://github.com/ryno-liquidedge/signature_pad/tree/1.0.1"
+            },
+            "time": "2023-12-11T11:43:23+00:00"
+        },
+        {
             "name": "setasign/fpdi",
             "version": "v2.3.7",
             "source": {
@@ -1876,9 +1875,7 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "intelogie/signature-pad": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
