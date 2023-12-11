@@ -15,6 +15,16 @@ trait table {
     private $sql_builder;
 
     //--------------------------------------------------------------------------------
+	public function get_custom_field($obj, $field, $options = []) {
+		$options = array_merge([
+		    "default" => false,
+		], $options);
+
+		if(property_exists($obj, $field)) return $obj->{$field};
+
+		return $options["default"];
+	}
+    //--------------------------------------------------------------------------------
 
     /**
      * @param $obj

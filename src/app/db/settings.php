@@ -231,7 +231,7 @@ class settings extends \com\db\table {
     	    "default" => \core::$folders->get_root_files()."/standard/favicon.png"
     	], $options);
 
-        $file_item = self::get_file_item(SETTING_COMPANY_COMPANY_FAVICON_REF, $options);
+        $file_item = self::get_file_item(SETTING_COMPANY_COMPANY_FAVICON_REF);
         if($file_item) return $file_item;
 
         if(file_exists(\core::$folders->get_root_files()."/img/favicon.png"))

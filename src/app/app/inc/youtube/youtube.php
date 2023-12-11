@@ -1,5 +1,5 @@
 <?php
-namespace LiquidedgeApp\Octoapp\app\app\data\inc\youtube;
+namespace LiquidedgeApp\Octoapp\app\app\inc\youtube;
 
 /**
  * @package app\inc\youtube

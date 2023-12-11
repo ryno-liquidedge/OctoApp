@@ -450,6 +450,25 @@ class ui extends \com\ui {
 	}
 	//--------------------------------------------------------------------------------
 
+    /**
+     * @param $id
+     * @param $value
+     * @param array $options
+     * @return mixed
+     */
+	public function isignature($id, $value = false, $options = []) {
+
+	    $options = array_merge([
+	        "id" => $id,
+	        "value" => $value,
+	        "width" => 400,
+	        "height" => 200,
+	    ], $options);
+
+	    return \LiquidedgeApp\Octoapp\app\app\ui\set\bootstrap\isignature::make()->build($options);
+	}
+	//--------------------------------------------------------------------------------
+
 	/**
 	 * @param $id
 	 * @param array $options

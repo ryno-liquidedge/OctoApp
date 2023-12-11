@@ -35,7 +35,7 @@ class youtube extends \com\ui\intf\element {
         ], $options);
 
 
-	    $youtube_id = \LiquidedgeApp\Octoapp\app\app\ui\inc\youtube\youtube::get_youtube_id_from_link($options["link"]);
+	    $youtube_id = \LiquidedgeApp\Octoapp\app\app\inc\youtube\youtube::get_youtube_id_from_link($options["link"]);
         $options["@width"] = $options["width"];
         $options["#width"] = $options["width"];
 
