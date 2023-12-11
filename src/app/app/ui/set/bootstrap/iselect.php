@@ -308,11 +308,6 @@ class iselect extends \com\ui\intf\element {
 				$autocomplete_options = array_merge($autocomplete_options, $options["autocomplete"]);
 			}
 
-			/*// disable multiple attribute if limited to one selection
-			if ($autocomplete_options["max_selection"] == 1) {
-				$options["@multiple"] = false;
-			}*/
-
 			// value
 			$js_set_value = false;
 			if ($options["autocomplete_value"]) {
