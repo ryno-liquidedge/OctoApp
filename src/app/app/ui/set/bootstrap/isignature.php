@@ -121,24 +121,18 @@ class isignature extends \LiquidedgeApp\Octoapp\app\app\ui\intf\element {
                     backgroundColor: '#FFF',
                     minWidth: '0.5',
                     maxWidth: '2',
-                });
-                
-                {$id}.addEventListener('onBegin', (ev) => {
-                  
-                    $('.undo-canvas-{$js_id}').removeClass('d-none');
-                  
-                    let on_start = {$options["!start"]};
-                    on_start.apply(this, [ev]);
-                  
-                });
-                
-                {$id}.addEventListener('onEnd', (ev) => {
-                  
-                    $('#$id').val({$id}.toDataURL());
-                  
-                    let on_complete = {$options["!complete"]};
-                    on_complete.apply(this, [ev]);
-                  
+                    onBegin: function(ev){
+						$('.undo-canvas-{$js_id}').removeClass('d-none');
+					  
+						let on_start = {$options["!start"]};
+						on_start.apply(this, [ev]);
+					},
+					onEnd: function(ev){
+						$('#$id').val({$id}.toDataURL());
+					  
+						let on_complete = {$options["!complete"]};
+						on_complete.apply(this, [ev]);
+					},
                 });
                 
                 
