@@ -449,6 +449,15 @@ class ui extends \com\ui {
 		return $this->set->get("note")->build($options);
 	}
 	//--------------------------------------------------------------------------------
+	public function blockquote($text, $title = false, $options = []) {
+		// options
+  		$options["quote"] = $text;
+  		$options["caption"] = $title;
+
+		// done
+		return  \LiquidedgeApp\Octoapp\app\app\ui\set\bootstrap\blockquote::make()->build($options);
+	}
+	//--------------------------------------------------------------------------------
 
     /**
      * @param $id
@@ -674,6 +683,20 @@ class ui extends \com\ui {
 		], $options);
 
 		return \LiquidedgeApp\Octoapp\app\app\ui\set\bootstrap\ul::make();
+	}
+	//--------------------------------------------------------------------------------
+	/**
+	 * @param array $options
+	 * @return set\bootstrap\ul|\com\intf\standard
+	 */
+	public function ol($options = []) {
+
+		$options = array_merge([
+			"list_type" => "ol",
+	        ".list-unstyled" => false,
+		], $options);
+
+		return \LiquidedgeApp\Octoapp\app\app\ui\set\bootstrap\ul::make($options);
 	}
 	//--------------------------------------------------------------------------------
 

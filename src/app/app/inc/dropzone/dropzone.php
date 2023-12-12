@@ -241,8 +241,8 @@ class dropzone extends \LiquidedgeApp\Octoapp\app\app\intf\standard {
 				}
 				
 				if($existing_files_json){
-					$('.dz-image img').css('height', '120');
-					$('.dz-image img').css('width', '120');
+					$('.dz-image img').css('height', '100%');
+					$('.dz-image img').css('width', '100%');
 					$('.dz-image img').css('object-fit', 'cover');
 				}
 				

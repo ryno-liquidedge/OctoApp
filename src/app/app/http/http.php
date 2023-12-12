@@ -141,6 +141,14 @@ class http extends \com\http{
 			"title" => "Save Pending Approval",
 			"message" => "Your entry has successfully been added and is awaiting approval",
 		],
+        202 => [
+			"title" => "Application Submitted",
+			"message" => "Thank you for your application. Once we have reviewed your request, we will contact you.",
+		],
+        203 => [
+			"title" => "Application Submitted",
+			"message" => "Thank you for your application.",
+		],
         404 => [
 			"title" => "Error 404",
 			"message" => "We're sorry, but the page you are looking for doesn't exist. You can search your topic using the box below or return to the homepage.",

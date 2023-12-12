@@ -14,7 +14,8 @@ class ul extends \com\ui\intf\element {
 	//--------------------------------------------------------------------------------
 	protected $item_arr = [];
 
-	protected $html = false;
+	protected $options = [];
+
 	//--------------------------------------------------------------------------------
 	// magic
 	//--------------------------------------------------------------------------------
@@ -22,7 +23,7 @@ class ul extends \com\ui\intf\element {
 
 		// init
         $this->name = "HTML List";
-		$this->html = \LiquidedgeApp\Octoapp\app\app\ui\ui::make()->buffer();
+		$this->options = $options;
 
 	}
 	//--------------------------------------------------------------------------------
@@ -82,18 +83,19 @@ class ul extends \com\ui\intf\element {
 	public function build($options = []) {
 
 	    $options = array_merge([
+	        "list_type" => "ul",
 	        ".list-unstyled" => true,
 	        ".list-group" => false,
 	        ".list-inline" => false,
 	        "/item" => [],
-	    ], $options);
+	    ], $options, $this->options);
 
 		// init
-		$buffer = $this->html;
+		$buffer = \LiquidedgeApp\Octoapp\app\app\ui\ui::make()->buffer();
 
 		if(!$this->item_arr) return false;
 
-		$buffer->ul_($options);
+		$buffer->{"{$options["list_type"]}_"}($options);
 		foreach ($this->item_arr as $key => $item){
 			$item = array_merge($options["/item"], $item);
 
@@ -111,7 +113,7 @@ class ul extends \com\ui\intf\element {
                 }
 		    $buffer->_li();
         }
-		$buffer->_ul();
+		$buffer->{"_{$options["list_type"]}"}();
 
 
 		return $buffer->get_clean();

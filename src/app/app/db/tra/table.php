@@ -615,4 +615,20 @@ trait table {
 
     }
     //--------------------------------------------------------------------------
+	public function get_field_display($field) {
+		return $this->field_arr[$field][0];
+	}
+    //--------------------------------------------------------------------------
+	public function get_field_default($field) {
+		return $this->field_arr[$field][1];
+	}
+    //--------------------------------------------------------------------------
+	public function get_field_data_type($field) {
+		return $this->field_arr[$field][2];
+	}
+    //--------------------------------------------------------------------------
+	public function get_field_reference($field) {
+		return $this->field_arr[$field][3];
+	}
+    //--------------------------------------------------------------------------
 }
