@@ -36,6 +36,7 @@ class vedit implements \com\router\int\action {
 
 				$buffer->xfieldset("System Config", function($buffer)use($options){
 					$buffer->xisetting(SETTING_COMPANY_NAME, $options);
+					$buffer->xisetting(SETTING_WEBSITE_TITLE, $options);
 					$buffer->xisetting(SETTING_COMPANY_TELLNR_WORK, $options);
 					$buffer->xisetting(SETTING_COMPANY_TELLNR_CONTACT, $options);
 					$buffer->xisetting(SETTING_COMPANY_TELLNR_FAX, $options);

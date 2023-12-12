@@ -2285,6 +2285,12 @@ class library {
 	"key" => "gs1.setting:TERMS_AND_CONDITIONS",
 	"code" => "SETTING_TERMS_AND_CONDITIONS",
 ],
+"SETTING_WEBSITE_TITLE" => [
+	"filename" => "website_title.php",
+	"classname" => "\\LiquidedgeApp\\Octoapp\\app\\app\\solid\\property_set\\solid_classes\\settings\\website_title",
+	"key" => "gs1.setting:WEBSITE_TITLE",
+	"code" => "SETTING_WEBSITE_TITLE",
+],
 	];
 	//--------------------------------------------------------------------------------
 }

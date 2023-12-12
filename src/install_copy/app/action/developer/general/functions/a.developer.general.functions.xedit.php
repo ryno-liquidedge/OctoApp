@@ -49,6 +49,7 @@ class xedit implements \com\router\int\action {
         //install ini config file
 		$ini_file = \app\coder\config\ini_file::make();
 		$ini_file->set_option("standard", "company", $fn_get_config_val(SETTING_COMPANY_NAME));
+		$ini_file->set_option("standard", "title", $fn_get_config_val(SETTING_WEBSITE_TITLE));
 		$ini_file->set_option("standard", "website", $fn_get_config_val(SETTING_COMPANY_WEBSITE));
 		$ini_file->set_option("custom", "app.currency.remove.decimals", $fn_get_config_val(SETTING_APP_CURRENCY_REMOVE_DECIMALS));
 		$ini_file->set_option("custom", "app.currency.vat.amount", $fn_get_config_val(SETTING_APP_CURRENCY_VAT_AMOUNT));
